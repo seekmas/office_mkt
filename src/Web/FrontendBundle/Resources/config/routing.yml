@@ -1,0 +1,8 @@
+web_frontend_homepage:
+    path:     /
+    defaults: { _controller: WebFrontendBundle:Default:index }
+
+#REST
+users:
+    type:     rest
+    resource: Web\FrontendBundle\Controller\RestController

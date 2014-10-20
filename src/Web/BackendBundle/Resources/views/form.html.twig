@@ -1,0 +1,66 @@
+<div class="block">
+    <!-- Edit Contact Title -->
+    <div class="block-title">
+        <div class="block-options pull-right">
+            <a data-original-title="Remove" href="javascript:void(0)" class="btn btn-sm btn-alt btn-danger enable-tooltip" data-toggle="block-hide" title=""><i class="fa fa-times"></i></a>
+        </div>
+        <h2><i class="fa fa-pencil"></i> John Doe</h2>
+    </div>
+    <!-- END Edit Contact Title -->
+
+    <!-- Edit Contact Content -->
+    <form action="page_ready_contacts.html" method="post" class="form-horizontal form-bordered" onsubmit="return false;">
+        <div class="form-group">
+            <label class="col-xs-3 control-label">
+                <img src="img/placeholders/avatars/avatar2.jpg" alt="avatar" class="img-circle">
+            </label>
+            <div class="col-xs-9">
+                <i class="fa fa-fw fa-upload"></i> <a href="javascript:void(0)">Upload New Avatar</a><br>
+                <i class="fa fa-fw fa-picture-o"></i> <a href="javascript:void(0)">Choose from Library</a><br><br>
+                <i class="fa fa-fw fa-times"></i> <a href="javascript:void(0)" class="text-danger">Remove Avatar</a>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-3 control-label" for="edit-contact-name">Name</label>
+            <div class="col-xs-9">
+                <input id="edit-contact-name" name="edit-contact-name" class="form-control" value="John Doe" placeholder="Enter Full Name.." type="text">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-3 control-label" for="edit-contact-email">Email</label>
+            <div class="col-xs-9">
+                <input id="edit-contact-email" name="edit-contact-email" class="form-control" value="test@example.com" placeholder="Enter Email.." type="email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-3 control-label" for="edit-contact-phone">Phone</label>
+            <div class="col-xs-9">
+                <input id="edit-contact-phone" name="edit-contact-phone" class="form-control" value="(999) 999-9999" placeholder="(000) 000-0000" type="text">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-3 control-label" for="edit-contact-mobile">Mobile</label>
+            <div class="col-xs-9">
+                <input id="edit-contact-mobile" name="edit-contact-mobile" class="form-control" placeholder="Enter Mobile Number.." type="text">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-3 control-label" for="edit-contact-address">Address</label>
+            <div class="col-xs-9">
+                <input id="edit-contact-address" name="edit-contact-address" class="form-control" value="Earth" placeholder="Enter Address.." type="text">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-3 control-label" for="edit-contact-group">Group</label>
+            <div class="col-xs-9">
+                <input style="display: none;" id="edit-contact-group" name="edit-contact-group" class="input-tags" value="Friends" type="text"><div style="width: auto; height: auto;" id="edit-contact-group_tagsinput" class="tagsinput"><span class="tag"><span>Friends  </span><a title="Removing tag" href="#">x</a></span><div id="edit-contact-group_addTag"><input style="color: rgb(102, 102, 102); width: 68px;" id="edit-contact-group_tag" value="" data-default="add a tag"></div><div class="tags_clear"></div></div>
+            </div>
+        </div>
+        <div class="form-group form-actions">
+            <div class="col-xs-9 col-xs-offset-3">
+                <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-check"></i> Save Changes</button>
+            </div>
+        </div>
+    </form>
+    <!-- END Edit Contact Content -->
+</div>

@@ -1,0 +1,15 @@
+web_backend_homepage:
+    path:     /
+    defaults: { _controller: WebBackendBundle:Home:index }
+
+web_contact_home:
+    path: /contacts
+    defaults: { _controller: WebBackendBundle:Contact:index }
+
+property_position:
+    path: /property/position
+    defaults: { _controller: WebBackendBundle:Property:position }
+
+stage_position:
+    path: /property/stage
+    defaults: { _controller: WebBackendBundle:Property:stage }

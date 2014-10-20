@@ -1,0 +1,30 @@
+services:
+    user_entity:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Web\BackendBundle\Entity\User ]
+
+    company_entity:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Web\BackendBundle\Entity\Company ]
+
+    stage_entity:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Web\BackendBundle\Entity\Stage ]
+
+    contacts_entity:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Web\BackendBundle\Entity\Contacts ]
+
+    position_entity:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Web\BackendBundle\Entity\Position ]

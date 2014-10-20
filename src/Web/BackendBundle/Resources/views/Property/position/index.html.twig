@@ -1,0 +1,19 @@
+{% extends "WebBackendBundle:Layouts:layouts.html.twig" %}
+
+
+{% block body %}
+
+    <div class="block">
+        <div class="block-title">
+            <div class="block-options pull-right">
+                <a data-original-title="Toggles .form-bordered class" href="javascript:void(0)" class="btn btn-alt btn-sm btn-default toggle-bordered enable-tooltip" data-toggle="button" title="">No Borders</a>
+            </div>
+            <h2>Create a new <strong>staff position</strong></h2>
+        </div>
+
+        {% include "WebBackendBundle:Property:position/index_content.html.twig" %}
+
+    </div>
+
+
+{% endblock %}
