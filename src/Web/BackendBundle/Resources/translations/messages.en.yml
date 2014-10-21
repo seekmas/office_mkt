@@ -1,0 +1,9 @@
+backend:
+    crumbs:
+        home: Home
+    home:
+        bigTile:  Makoto Office Home Page
+        bigDescription:  Fast links to clients , company , project , invoice etc.
+        create: Create
+        list: List
+        reimburse: Reimburse

@@ -4,7 +4,8 @@ web_frontend:
 
 web_backend:
     resource: "@WebBackendBundle/Resources/config/routing.yml"
-    prefix:   /admin
+    prefix:   /{_locale}/admin
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+

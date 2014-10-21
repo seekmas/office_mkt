@@ -4,7 +4,7 @@ imports:
 
 framework:
     esi:             ~
-    translator:      ~
+    translator:      { fallback: %locale% }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -99,29 +99,9 @@ fos_rest:
         failed_validation: HTTP_BAD_REQUEST
         default_engine: twig
 
-#snc_redis:
-#    clients:
-#        default:
-#            type: predis
-#            alias: default
-#            dsn: redis://localhost
-#            logging: %kernel.debug%
-#        cache:
-#            type: predis
-#            alias: cache
-#            dsn: redis://secret@localhost/1
-#            options:
-#                profile: 2.2
-#                connection_timeout: 10
-#                read_write_timeout: 30
-#        session:
-#            type: predis
-#            alias: session
-#            dsn: redis://localhost/2
-#        cluster:
-#            type: predis
-#            alias: cluster
-#            dsn:
-#                - redis://localhost/3?weight=10
-#                - redis://localhost/4?weight=5
-#                - redis://localhost/5?weight=1
+knp_time: ~
+
+#jms_i18n_routing:
+#    default_locale: en
+#    locales: [en, zh_CN]
+#    strategy: prefix

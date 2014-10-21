@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Company
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Web\BackendBundle\Entity\CompanyRepository")
+ * @ORM\Entity()
  */
 class Company
 {
@@ -51,23 +51,23 @@ class Company
     /**
      * @var integer
      *
-     * @ORM\Column(name="country_id", type="integer")
+     * @ORM\Column(name="country", type="string", length=255)
      */
-    private $countryId;
+    private $country;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="province_id", type="integer")
+     * @ORM\Column(name="province", type="string", length=255)
      */
-    private $provinceId;
+    private $province;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="city_id", type="integer")
+     * @ORM\Column(name="city", type="string", length=255)
      */
-    private $cityId;
+    private $city;
 
     /**
      * @var string
@@ -77,9 +77,20 @@ class Company
     private $address;
 
     /**
-     * @ORM\OneToMany(targetEntity="Position" , mappedBy="company")
+     * @ORM\ManyToOne(targetEntity="User" , inversedBy="company")
+     * @ORM\JoinColumn(name="user_id" , referencedColumnName="id")
      */
-    private $position;
+    private $createdBy;
+
+    /**
+     @ORM\Column(name="user_id" , type="integer")
+     */
+    private $userId;
+
+    /**
+     * @ORM\Column(name="created_at" , type="datetime")
+     */
+    private $createdAt;
 
     /**
      * Get id
@@ -92,45 +103,61 @@ class Company
     }
 
     /**
-     * Set name
-     *
-     * @param string $name
-     * @return Company
+     * @return string
      */
-    public function setName($name)
+    public function getAddress()
     {
-        $this->name = $name;
+        return $this->address;
+    }
 
+    /**
+     * @return Company
+     * @param string $address
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
         return $this;
     }
 
     /**
-     * Get name
-     *
-     * @return string 
+     * @return int
      */
-    public function getName()
+    public function getCity()
     {
-        return $this->name;
+        return $this->city;
     }
 
     /**
-     * Set description
-     *
-     * @param string $description
      * @return Company
+     * @param int $city
      */
-    public function setDescription($description)
+    public function setCity($city)
     {
-        $this->description = $description;
-
+        $this->city = $city;
         return $this;
     }
 
     /**
-     * Get description
-     *
-     * @return string 
+     * @return int
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * @return Company
+     * @param int $country
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+        return $this;
+    }
+
+    /**
+     * @return string
      */
     public function getDescription()
     {
@@ -138,22 +165,35 @@ class Company
     }
 
     /**
-     * Set industryId
-     *
-     * @param integer $industryId
      * @return Company
+     * @param string $description
      */
-    public function setIndustryId($industryId)
+    public function setDescription($description)
     {
-        $this->industryId = $industryId;
-
+        $this->description = $description;
         return $this;
     }
 
     /**
-     * Get industryId
-     *
-     * @return integer 
+     * @return mixed
+     */
+    public function getIndustry()
+    {
+        return $this->industry;
+    }
+
+    /**
+     * @return Company
+     * @param mixed $industry
+     */
+    public function setIndustry($industry)
+    {
+        $this->industry = $industry;
+        return $this;
+    }
+
+    /**
+     * @return int
      */
     public function getIndustryId()
     {
@@ -161,94 +201,109 @@ class Company
     }
 
     /**
-     * Set countryId
-     *
-     * @param integer $countryId
      * @return Company
+     * @param int $industryId
      */
-    public function setCountryId($countryId)
+    public function setIndustryId($industryId)
     {
-        $this->countryId = $countryId;
-
+        $this->industryId = $industryId;
         return $this;
     }
 
     /**
-     * Get countryId
-     *
-     * @return integer 
+     * @return string
      */
-    public function getCountryId()
+    public function getName()
     {
-        return $this->countryId;
+        return $this->name;
     }
 
     /**
-     * Set provinceId
-     *
-     * @param integer $provinceId
      * @return Company
+     * @param string $name
      */
-    public function setProvinceId($provinceId)
+    public function setName($name)
     {
-        $this->provinceId = $provinceId;
-
+        $this->name = $name;
         return $this;
     }
 
     /**
-     * Get provinceId
-     *
-     * @return integer 
+     * @return int
      */
-    public function getProvinceId()
+    public function getProvince()
     {
-        return $this->provinceId;
+        return $this->province;
     }
 
     /**
-     * Set cityId
-     *
-     * @param integer $cityId
      * @return Company
+     * @param int $province
      */
-    public function setCityId($cityId)
+    public function setProvince($province)
     {
-        $this->cityId = $cityId;
-
+        $this->province = $province;
         return $this;
     }
 
     /**
-     * Get cityId
-     *
-     * @return integer 
+     * @return mixed
      */
-    public function getCityId()
+    public function getCreatedAt()
     {
-        return $this->cityId;
+        return $this->createdAt;
     }
 
     /**
-     * Set address
-     *
-     * @param string $address
      * @return Company
+     * @param mixed $createdAt
      */
-    public function setAddress($address)
+    public function setCreatedAt($createdAt)
     {
-        $this->address = $address;
-
+        $this->createdAt = $createdAt;
         return $this;
     }
 
     /**
-     * Get address
-     *
-     * @return string 
+     * @return mixed
      */
-    public function getAddress()
+    public function getCreatedBy()
     {
-        return $this->address;
+        return $this->createdBy;
     }
+
+    /**
+     * @return Company
+     * @param mixed $createdBy
+     */
+    public function setCreatedBy($createdBy)
+    {
+        $this->createdBy = $createdBy;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserId()
+    {
+        return $this->userId;
+    }
+
+    /**
+     * @return Company
+     * @param mixed $userId
+     */
+    public function setUserId($userId)
+    {
+        $this->userId = $userId;
+        return $this;
+    }
+
+    function __toString()
+    {
+        return $this->getName();
+    }
+
+
 }

@@ -1,0 +1,9 @@
+backend:
+    crumbs:
+        home: 首页
+    home:
+        bigTile:  Makoto办公室 首页
+        bigDescription:  快捷方式到客户,公司,项目,发票等等
+        create: 创建
+        list: 列表
+        reimburse: 报销

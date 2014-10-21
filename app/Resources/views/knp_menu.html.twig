@@ -57,8 +57,10 @@
             <li>
                 {% import _self as knp_menu %}
                 <a class="sidebar-nav-menu" href="{{ item.uri }}">
-                    <i class="fa fa-bars fa-fw"></i>
-                    <i class="fa fa-angle-left sidebar-nav-indicator"></i>
+                    {% if item.getAttribute('icon') %} <i class="{{ item.getAttribute('icon') }} sidebar-nav-icon"></i>{% endif %}
+
+                    {%- if item.level == 1 %}<i class="fa fa-angle-left sidebar-nav-indicator"></i>{% endif %}
+
                     {{ block('label') }}
                 </a>
                 {{ block('list') }}
@@ -68,6 +70,7 @@
             <li class="sidebar-header">
                 {% import _self as knp_menu %}
                 <span class="sidebar-header-title">
+                    {% if item.getAttribute('icon') %} <i class="{{ item.getAttribute('icon') }} sidebar-nav-icon"></i>{% endif %}
                     {{ block('label') }}
                 </span>
                 {{ block('list') }}
@@ -75,6 +78,9 @@
             {% else %}
             <li>
                 <a class="{% if matcher.isCurrent(item) %}active{% endif %}" href="{{ item.uri }}">
+                    {% if item.getAttribute('icon') %} <i class="{{ item.getAttribute('icon') }} sidebar-nav-icon"></i>{% endif %}
+
+                    {%- if item.level > 1 %}<i class="fa fa-angle-left sidebar-nav-indicator"></i>{% endif %}
 
                     {{ block('label') }}
                 </a>

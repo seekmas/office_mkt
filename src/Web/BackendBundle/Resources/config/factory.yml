@@ -28,3 +28,9 @@ services:
         factory_service: doctrine
         factory_method: getRepository
         arguments: [ Web\BackendBundle\Entity\Position ]
+
+    industry_entity:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Web\BackendBundle\Entity\Industry ]

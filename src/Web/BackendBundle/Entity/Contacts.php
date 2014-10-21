@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Contacts
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Web\BackendBundle\Entity\ContactsRepository")
+ * @ORM\Entity()
  */
 class Contacts
 {
@@ -67,19 +67,6 @@ class Contacts
      * @ORM\Column(name="company_id", type="integer" , nullable=true)
      */
     private $companyId;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Stage" , inversedBy="contacts")
-     * @ORM\JoinColumn(name="stage_id" , referencedColumnName="id")
-     */
-    private $stage;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="stage_id", type="integer" , nullable=true)
-     */
-    private $stageId;
 
     /**
      * @ORM\ManyToOne(targetEntity="User" , inversedBy="contacts")

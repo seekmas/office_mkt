@@ -17,13 +17,14 @@ class CompanyType extends AbstractType
         $builder
             ->add('name')
             ->add('description')
-            ->add('industryId')
-            ->add('countryId')
-            ->add('provinceId')
-            ->add('cityId')
-            ->add('address')
             ->add('industry')
+            ->add('country')
+            ->add('province')
+            ->add('city')
+            ->add('address')
         ;
+
+        $builder->add('submit','submit');
     }
     
     /**

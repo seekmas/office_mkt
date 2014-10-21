@@ -1,0 +1,45 @@
+{% extends "WebBackendBundle:Layouts:layouts.html.twig" %}
+
+
+{% block body %}
+
+
+    <div class="row">
+        <div class="col-sm-6">
+            <!-- Widget -->
+            {% for industry in industries %}
+                <a href="" class="widget widget-hover-effect1">
+                    <div class="widget-simple">
+                        <div class="widget-icon pull-left themed-background animation-fadeIn">
+                            <i class="fa fa-book"></i>
+                        </div>
+
+                        <h3 class="widget-content animation-pullDown">
+                            <strong>{{ industry.name }}</strong>
+                            <small>Click to edit it</small>
+                        </h3>
+                    </div>
+                </a>
+            {% endfor %}
+            <!-- END Widget -->
+        </div>
+
+        <div class="col-md-6">
+            <div class="block">
+
+                <div class="block-title">
+
+                    <div class="block-options pull-right">
+                        <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-primary" data-toggle="block-toggle-fullscreen"><i class="fa fa-desktop"></i></a>
+                        <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-primary" data-toggle="block-hide"><i class="fa fa-times"></i></a>
+                    </div>
+
+                    <h2>All <strong>industries</strong> in list</h2>
+                </div>
+
+                {% include "WebBackendBundle:Property:position/index_content.html.twig" %}
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

@@ -3,8 +3,10 @@
 namespace Web\BackendBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Web\BackendBundle\Entity\Industry;
 use Web\BackendBundle\Entity\Position;
 use Web\BackendBundle\Entity\Stage;
+use Web\BackendBundle\Form\IndustryType;
 use Web\BackendBundle\Form\PositionType;
 use Web\BackendBundle\Form\StageType;
 
@@ -36,7 +38,14 @@ class PropertyController extends Controller
             return $this->redirect('property_position');
         }
 
-        return $this->render('WebBackendBundle:Property:position/index.html.twig' , ['form'=>$form->createView()]);
+        $positions = $this->get('position_entity')->findAll();
+
+        return $this->render('WebBackendBundle:Property:position/index.html.twig' ,
+            [
+                'form'=>$form->createView() ,
+                'positions' => $positions
+            ]
+        );
     }
 
     public function stageAction(Request $request)
@@ -50,11 +59,11 @@ class PropertyController extends Controller
         if($form->isValid())
         {
             $name = $stage->getName();
-            $exist = $this->get('position_entity')->findOneByName($name);
+            $exist = $this->get('stage_entity')->findOneByName($name);
             if($exist)
             {
                 $this->flash('danger' , $name.' is existed!');
-                return $this->redirect('property_position');
+                return $this->redirect('stage_position');
             }
 
             $em = $this->getManager();
@@ -62,10 +71,44 @@ class PropertyController extends Controller
             $em->flush();
 
             $this->flash('success' , $name.' is created successful!');
-            return $this->redirect('property_position');
+            return $this->redirect('stage_position');
         }
 
-        return $this->render('WebBackendBundle:Property:stage/index.html.twig' , ['form'=>$form->createView()]);
+        $stages = $this->get('stage_entity')->findAll();
+
+        return $this->render('WebBackendBundle:Property:stage/index.html.twig' ,
+            [
+                'form'=>$form->createView() ,
+                'stages' => $stages
+            ]
+        );
+    }
+
+    public function industryAction(Request $request)
+    {
+        $industry = new Industry();
+        $type = new IndustryType();
+
+        $form = $this->getForm($industry,$type,$request);
+
+        if($form->isValid())
+        {
+            $em = $this->getManager();
+            $em->persist($industry);
+            $em->flush();
+
+            $this->flash('success' , $industry->getName().'添加成功');
+            return $this->redirect('property_industry');
+        }
+
+        $industries = $this->get('industry_entity')->findAll();
+
+        return $this->render('WebBackendBundle:Property:industry/index.html.twig' ,
+            [
+                'form'=>$form->createView() ,
+                'industries' => $industries
+            ]
+        );
     }
 
     public function tagAction(Request $request){}

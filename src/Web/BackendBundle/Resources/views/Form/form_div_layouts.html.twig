@@ -31,7 +31,7 @@
 {%- endblock collection_widget %}
 
 {% block textarea_widget -%}
-    <textarea {{ block('widget_attributes') }}>{{ value }}</textarea>
+    <textarea rows="10" class="form-control textarea-editor" {{ block('widget_attributes') }}>{{ value }}</textarea>
 {%- endblock textarea_widget %}
 
 {% block choice_widget -%}
@@ -55,7 +55,7 @@
     {% if required and empty_value is none and not empty_value_in_choices and not multiple -%}
         {% set required = false %}
     {%- endif -%}
-    <select {{ block('widget_attributes') }}{% if multiple %} multiple="multiple"{% endif %}>
+    <select class="select-select2" style="width: 100%;" data-placeholder="Choose one.." {{ block('widget_attributes') }}{% if multiple %} multiple="multiple"{% endif %}>
         {% if empty_value is not none -%}
             <option value=""{% if required and value is empty %} selected="selected"{% endif %}>{{ empty_value|trans({}, translation_domain) }}</option>
         {%- endif %}
@@ -233,7 +233,11 @@
         {{- form_errors(form) -}}
         <div class="col-md-9">
             {{- form_widget(form) -}}
-            <span class="help-block">Please enter a complex password</span>
+
+            {% set attr = form.vars.attr %}
+            {% if attr['help'] is defined %}
+                <span class="help-block">{{ attr['help'] }}</span>
+            {% endif %}
         </div>
     </div>
 {%- endblock form_row %}

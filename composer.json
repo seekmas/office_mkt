@@ -27,6 +27,7 @@
         "jms/di-extra-bundle": "1.4.*@dev",
         "jms/debugging-bundle": "dev-master",
         "jms/job-queue-bundle": "dev-master",
+        "jms/i18n-routing-bundle": "dev-master",
         "raulfraile/ladybug-bundle": "dev-master",
         "friendsofsymfony/message-bundle": "1.2.*@dev",
         "friendsofsymfony/comment-bundle": "2.0.*@dev",

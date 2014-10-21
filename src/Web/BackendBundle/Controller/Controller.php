@@ -28,6 +28,9 @@ class Controller extends BaseController
         return $form;
     }
 
+    /**
+     * @return \Doctrine\ORM\EntityManager
+     */
     public function getManager()
     {
         return $this->getDoctrine()->getManager();
