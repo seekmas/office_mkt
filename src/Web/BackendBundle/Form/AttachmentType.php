@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ContactsType extends AbstractType
+class AttachmentType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,11 +15,7 @@ class ContactsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name' , null , ['label' => 'Name' , 'attr' => ['help' => 'Your client\'s name']])
-            ->add('email' , null , ['label' => 'Email' , 'attr' => ['help' => 'Your client\'s email']])
-            ->add('phone')
-            ->add('position')
-            ->add('company')
+            ->add('file' , 'file' , ['label' => 'Upload File'])
         ;
 
         $builder->add('submit' , 'submit');
@@ -31,7 +27,7 @@ class ContactsType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Web\BackendBundle\Entity\Contacts'
+            'data_class' => 'Web\BackendBundle\Entity\Attachment'
         ));
     }
 
@@ -40,6 +36,6 @@ class ContactsType extends AbstractType
      */
     public function getName()
     {
-        return 'web_backendbundle_contacts';
+        return 'web_backendbundle_attachment';
     }
 }

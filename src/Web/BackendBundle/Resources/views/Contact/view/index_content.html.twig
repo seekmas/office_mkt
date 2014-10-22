@@ -1,0 +1,192 @@
+<div class="row">
+<!-- First Column -->
+<div class="col-md-6 col-lg-7">
+<!-- Updates Block -->
+<div class="block">
+    <!-- Updates Title -->
+    <div class="block-title">
+        <h2>{{ 'backend.contact.contactsActivity' | trans | raw }}</h2>
+    </div>
+    <!-- END Updates Title -->
+
+    <!-- Update Status Form -->
+    <form action="#" method="post" class="block-content-full block-content-mini-padding" onsubmit="return false;">
+        <textarea id="default-textarea" name="default-textarea" rows="2" class="form-control push-bit" placeholder="What are you thinking?"></textarea>
+        <div class="clearfix">
+            <button type="submit" class="btn btn-sm btn-primary pull-right"><i class="fa fa-pencil"></i> Post</button>
+            <a data-original-title="Add File" href="javascript:void(0)" class="btn btn-link btn-icon" data-toggle="tooltip" data-placement="bottom" title=""><i class="fa fa-file"></i></a>
+        </div>
+    </form>
+    <!-- END Update Status Form -->
+</div>
+<!-- END Updates Block -->
+
+<!-- Newsfeed Block -->
+<div class="block">
+    <!-- Newsfeed Title -->
+    <div class="block-title">
+        <h2>{{ 'backend.contact.newsfeed' | trans | raw }}</h2>
+    </div>
+    <!-- END Newsfeed Title -->
+
+    <!-- Newsfeed Content -->
+    <div class="block-content-full">
+        <!-- You can remove the class .media-feed-hover if you don't want each event to be highlighted on mouse hover -->
+        <ul class="media-list media-feed media-feed-hover">
+
+            <li id="newsfeed-update-example" class="media">
+                <a href="page_ready_user_profile.html" class="pull-left animation-fadeIn">
+                    <img src="img/placeholders/avatars/avatar15.jpg" alt="Avatar" class="img-circle">
+                </a>
+                <div class="media-body animation-pullDown">
+                    <p class="push-bit">
+                    <span class="text-muted pull-right">
+                        <small>just now</small>
+                        <span data-original-title="From Mobile" class="text-success" data-toggle="tooltip" title="">
+                            <i class="fa fa-mobile"></i>
+                        </span>
+                    </span>
+                        <strong><a href="page_ready_user_profile.html">User</a> uploaded 2 new photos.</strong>
+                    </p>
+                    <div class="row push">
+                        <div class="col-sm-6 col-md-4">
+                            <a href="img/placeholders/photos/photo13.jpg" data-toggle="lightbox-image">
+                                <img src="img/placeholders/photos/photo13.jpg" alt="image">
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <a href="img/placeholders/photos/photo23.jpg" data-toggle="lightbox-image">
+                                <img src="img/placeholders/photos/photo23.jpg" alt="image">
+                            </a>
+                        </div>
+                    </div>
+                    <p>
+                        <a href="javascript:void(0)" class="btn btn-xs btn-default"><i class="fa fa-thumbs-o-up"></i> Like</a>
+                        <a href="javascript:void(0)" class="btn btn-xs btn-default"><i class="fa fa-comments-o"></i> Comment</a>
+                        <a href="javascript:void(0)" class="btn btn-xs btn-default"><i class="fa fa-share-square-o"></i> Share</a>
+                    </p>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+    <!-- END Newsfeed Content -->
+</div>
+<!-- END Newsfeed Block -->
+</div>
+<!-- END First Column -->
+
+<!-- Second Column -->
+<div class="col-md-6 col-lg-5">
+<!-- Info Block -->
+<div class="block">
+    <!-- Info Title -->
+    <div class="block-title">
+        <h2>{{ 'backend.contact.contactInformation' | trans | raw }}</h2>
+    </div>
+    <!-- END Info Title -->
+
+    <!-- Info Content -->
+    <table class="table table-borderless table-striped">
+        <tbody>
+        <tr>
+            <td style="width: 50%;"><strong>{{ 'backend.contact.contactName' | trans | raw }}</strong></td>
+            <td>{{ contact.name }}</td>
+        </tr>
+        <tr class="danger">
+            <td><strong>{{ 'backend.contact.fromCompany' | trans | raw }}</strong></td>
+            <td><a href="javascript:void(0)">{{ contact.company }}</a></td>
+        </tr>
+        <tr>
+            <td><strong>{{ 'backend.contact.email' | trans | raw }}</strong></td>
+            <td><a href="javascript:void(0)">{{ contact.email }}</a></td>
+        </tr>
+        <tr class="success">
+            <td><strong>{{ 'backend.contact.position' | trans | raw }}</strong></td>
+            <td><a href="javascript:void(0)">{{ contact.position }}</a></td>
+        </tr>
+        <tr>
+            <td><strong>{{ 'backend.contact.phone' | trans | raw }}</strong></td>
+            <td><a href="javascript:void(0)">{{ contact.phone }}</a></td>
+        </tr>
+        <tr class="info">
+            <td><strong>{{ 'backend.contact.createdAt' | trans | raw }}</strong></td>
+            <td>{{ contact.createdAt | date('Y-m-d') }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- END Info Content -->
+</div>
+<!-- END Info Block -->
+
+
+    <div class="block full">
+        <!-- Twitter Title -->
+        <div class="block-title">
+            <div class="block-options pull-right">
+                <a data-original-title="Edit" href="javascript:void(0)" class="btn btn-sm btn-alt btn-default" data-toggle="tooltip" title=""><i class="fa fa-pencil"></i></a>
+            </div>
+            <h2>{{ 'backend.contact.relatedProjectsList' | trans | raw }}</h2>
+        </div>
+        <!-- END Twitter Title -->
+
+        <!-- Twitter Content -->
+        <ul class="media-list">
+            <li class="media">
+                <a href="page_ready_user_profile.html" class="pull-left">
+                    <img src="img/placeholders/avatars/avatar2.jpg" alt="Avatar" class="img-circle">
+                </a>
+                <div class="media-body">
+                    <span class="text-muted pull-right"><small><em>30 min ago</em></small></span>
+                    <a href="page_ready_user_profile.html"><strong>John Doe</strong></a>
+                    <p>In hac <a href="javascript:void(0)">habitasse</a> platea dictumst. Proin ac nibh rutrum lectus rhoncus eleifend. <a href="javascript:void(0)" class="text-danger"><strong>#dev</strong></a></p>
+                </div>
+            </li>
+            <li class="media">
+                <a href="page_ready_user_profile.html" class="pull-left">
+                    <img src="img/placeholders/avatars/avatar2.jpg" alt="Avatar" class="img-circle">
+                </a>
+                <div class="media-body">
+                    <span class="text-muted pull-right"><small><em>3 hours ago</em></small></span>
+                    <a href="page_ready_user_profile.html"><strong>John Doe</strong></a>
+                    <p>Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum.</p>
+                </div>
+            </li>
+            <li class="media">
+                <a href="page_ready_user_profile.html" class="pull-left">
+                    <img src="img/placeholders/avatars/avatar2.jpg" alt="Avatar" class="img-circle">
+                </a>
+                <div class="media-body">
+                    <span class="text-muted pull-right"><small><em>yesterday</em></small></span>
+                    <a href="page_ready_user_profile.html"><strong>John Doe</strong></a>
+                    <p>In hac habitasse platea dictumst. Proin ac nibh rutrum <a href="javascript:void(0)">lectus</a> rhoncus eleifend <a href="javascript:void(0)" class="text-danger"><strong>#design</strong></a></p>
+                </div>
+            </li>
+            <li class="media">
+                <a href="page_ready_user_profile.html" class="pull-left">
+                    <img src="img/placeholders/avatars/avatar2.jpg" alt="Avatar" class="img-circle">
+                </a>
+                <div class="media-body">
+                    <span class="text-muted pull-right"><small><em>2 days ago</em></small></span>
+                    <a href="page_ready_user_profile.html"><strong>John Doe</strong></a>
+                    <p>Donec lacinia venenatis metus at bibendum? In hac habitasse platea dictumst. Proin ac nibh rutrum lectus rhoncus eleifend.</p>
+                </div>
+            </li>
+            <li class="media">
+                <a href="page_ready_user_profile.html" class="pull-left">
+                    <img src="img/placeholders/avatars/avatar2.jpg" alt="Avatar" class="img-circle">
+                </a>
+                <div class="media-body">
+                    <span class="text-muted pull-right"><small><em>3 days ago</em></small></span>
+                    <a href="page_ready_user_profile.html"><strong>John Doe</strong></a>
+                    <p>In hac habitasse platea dictumst. Proin ac nibh rutrum lectus rhoncus eleifend.</p>
+                </div>
+            </li>
+        </ul>
+        <!-- END Twitter Content -->
+    </div>
+
+
+</div>
+<!-- END Second Column -->
+</div>

@@ -19,8 +19,31 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @ORM\OneToOne(targetEntity="Document" , mappedBy="user")
+     */
+    private $document;
+
     public function __construct()
     {
         parent::__construct();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDocument()
+    {
+        return $this->document;
+    }
+
+    /**
+     * @return User
+     * @param mixed $document
+     */
+    public function setDocument($document)
+    {
+        $this->document = $document;
+        return $this;
     }
 }

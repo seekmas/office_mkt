@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ce06704cbba734f5cd1c7d3c08112a33",
+    "hash": "16fb1647df308b38fb6db0eff63c2c43",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2757,12 +2757,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/liip/LiipImagineBundle.git",
-                "reference": "7d0e79706bbae63e09587d592bb96e7f5d9e43bd"
+                "reference": "0ff25c689d711aada82aaca54bb98c15d6a0ca19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liip/LiipImagineBundle/zipball/7d0e79706bbae63e09587d592bb96e7f5d9e43bd",
-                "reference": "7d0e79706bbae63e09587d592bb96e7f5d9e43bd",
+                "url": "https://api.github.com/repos/liip/LiipImagineBundle/zipball/0ff25c689d711aada82aaca54bb98c15d6a0ca19",
+                "reference": "0ff25c689d711aada82aaca54bb98c15d6a0ca19",
                 "shasum": ""
             },
             "require": {
@@ -2822,7 +2822,7 @@
                 "image",
                 "imagine"
             ],
-            "time": "2014-10-18 17:48:27"
+            "time": "2014-10-21 07:29:31"
         },
         {
             "name": "liip/theme-bundle",
@@ -2928,6 +2928,52 @@
                 "markdown"
             ],
             "time": "2014-05-05 02:43:50"
+        },
+        {
+            "name": "mmoreram/http-headers-bundle",
+            "version": "dev-master",
+            "target-dir": "Mmoreram/HttpHeadersBundle",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:mmoreram/http-headers-bundle.git",
+                "reference": "40e45fb87e5708eb1fe57f5478c778eb69dc334f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mmoreram/http-headers-bundle/zipball/40e45fb87e5708eb1fe57f5478c778eb69dc334f",
+                "reference": "40e45fb87e5708eb1fe57f5478c778eb69dc334f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/config": ">=2.2.3",
+                "symfony/dependency-injection": ">=2.2.3",
+                "symfony/event-dispatcher": ">=2.2.3",
+                "symfony/http-kernel": ">=2.2.3"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Mmoreram\\HttpHeadersBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marc Morera",
+                    "email": "yuhu@mmoreram.com"
+                }
+            ],
+            "description": "Custom Response HTTP Headers definition for Symfony2",
+            "homepage": "https://github.com/mmoreram/http-headers-bundle",
+            "keywords": [
+                "headers",
+                "symfony"
+            ],
+            "time": "2014-02-18 17:17:04"
         },
         {
             "name": "monolog/monolog",
@@ -4522,7 +4568,8 @@
         "liip/doctrine-cache-bundle": 20,
         "liip/imagine-bundle": 20,
         "snc/redis-bundle": 20,
-        "predis/predis": 20
+        "predis/predis": 20,
+        "mmoreram/http-headers-bundle": 20
     },
     "prefer-stable": false,
     "platform": {

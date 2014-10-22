@@ -1,5 +1,6 @@
 imports:
     - { resource: factory.yml }
+    - { resource: paginator.yml }
 
 services:
     twig.uri.extension:
@@ -8,3 +9,6 @@ services:
         tags:
             - { name: twig.extension }
 
+    attachment.manager:
+        class: Web\BackendBundle\Attachments\AttachmentsManager
+        arguments: [@service_container]

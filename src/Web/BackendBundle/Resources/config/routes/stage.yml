@@ -1,0 +1,3 @@
+property_stage:
+    path: /
+    defaults: { _controller: WebBackendBundle:Property:stage }

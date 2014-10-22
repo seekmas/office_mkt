@@ -15,7 +15,9 @@ class Builder extends ContainerAware
         $this
              ->createCategory()
              ->createHome()
-             ->createConnection()
+             ->createUser()
+             ->createInvoice()
+             ->createMarketing()
              ->configCategory()
              ->createProperty()
         ;
@@ -27,7 +29,7 @@ class Builder extends ContainerAware
     {
         $menu = $this->menu;
 
-        $menu->addChild('Start' , ['attributes' => ['icon'=>'fa fa-share-alt']]);
+        $menu->addChild('Business' , ['attributes' => ['icon'=>'fa fa-share-alt']]);
         return $this;
     }
 
@@ -38,12 +40,35 @@ class Builder extends ContainerAware
         return $this;
     }
 
-    public function createConnection()
+    public function createUser()
     {
         $menu = $this->menu;
-        $menu->addChild('Connection', [ 'attributes' => ['icon' => 'fa fa-magnet']]);
-        $menu['Connection']->addChild('Clients', ['route' => 'web_contact_home','attributes'=>['icon' => 'fa fa-users']]);
-        $menu['Connection']->addChild('Company', ['route' => 'web_company_home' ,'attributes'=>['icon' => 'fa fa-globe']]);
+        $menu->addChild('My_Dashboard', [ 'label' => 'My Dashboard' , 'route' => '' ,  'attributes'=> ['icon' => 'fa fa-file-code-o']]);
+
+        $menu['My_Dashboard']->addChild('Account' , ['route' => 'user_document' , 'attributes' => ['icon' => 'fa fa-file-word-o'] ]);
+        $menu['My_Dashboard']->addChild('Contract' , ['route' => 'user_contract' , 'attributes' => ['icon' => 'fa fa-paw'] ]);
+
+        return $this;
+    }
+
+    public function createInvoice()
+    {
+        $menu = $this->menu;
+        $menu->addChild('Invoice', [ 'label' => 'Invoice' , 'route' => '' ,  'attributes'=> ['icon' => 'fa fa-cny']]);
+
+        $menu['Invoice']->addChild('Client' , ['route' => '' , 'attributes' => ['icon' => 'fa fa-users'] ]);
+        $menu['Invoice']->addChild('Reimburse' , ['route' => '' , 'attributes' => ['icon' => 'fa fa-money'] ]);
+
+        return $this;
+    }
+
+    public function createMarketing()
+    {
+        $menu = $this->menu;
+        $menu->addChild('Marketing', [ 'attributes' => ['icon' => 'fa fa-usd']]);
+        $menu['Marketing']->addChild('Projects', ['route' => 'web_project_home','attributes'=>['icon' => 'fa fa-coffee']]);
+        $menu['Marketing']->addChild('Contacts', ['route' => 'contact_list','attributes'=>['icon' => 'fa fa-users']]);
+        $menu['Marketing']->addChild('Companies', ['route' => 'web_company_home' ,'attributes'=>['icon' => 'fa fa-globe']]);
         return $this;
     }
 
@@ -58,12 +83,10 @@ class Builder extends ContainerAware
     public function createProperty()
     {
         $menu = $this->menu;
-        $menu->addChild('Property', ['route' => '']);
-        $menu['Property']->addChild('Position', ['route' => 'property_position']);
-
-        $menu['Property']->addChild('Stage', ['route' => 'property_stage']);
-
-        $menu['Property']->addChild('Industry', ['route' => 'property_industry']);
+        $menu->addChild('Property', ['route' => '' , 'attributes' => ['icon' => 'fa fa-database']]);
+        $menu['Property']->addChild('Position', ['route' => 'property_position', 'attributes' => ['icon'=>'fa fa-cube']]);
+        $menu['Property']->addChild('Stage', ['route' => 'property_stage' , 'attributes' => ['icon'=>'fa fa-sitemap']]);
+        $menu['Property']->addChild('Industry', ['route' => 'property_industry' , 'attributes' => ['icon' => 'fa fa-cubes']]);
 
         return $this;
     }

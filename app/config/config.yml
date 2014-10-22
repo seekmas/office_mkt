@@ -99,8 +99,28 @@ fos_rest:
         failed_validation: HTTP_BAD_REQUEST
         default_engine: twig
 
+http_headers:
+    response:
+        x_powered_by:
+            name: X-Powered-By
+            values:
+                - PHP/mot_version_rc1.2
+        X_author_info:
+            name: X-Author-Contact
+            values:
+                - name_Mot.Evans email_seekmas@msn.cn
 knp_time: ~
 
+knp_paginator:
+    page_range: 5                      # default page range used in pagination control
+    default_options:
+        page_name: page                # page query parameter name
+        sort_field_name: sort          # sort field query parameter name
+        sort_direction_name: direction # sort direction query parameter name
+        distinct: true                 # ensure distinct results, useful when ORM queries are using GROUP BY statements
+    template:
+        pagination: KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig     # sliding pagination controls template
+        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
 #jms_i18n_routing:
 #    default_locale: en
 #    locales: [en, zh_CN]

@@ -1,0 +1,7 @@
+user_document:
+    path: /
+    defaults: { _controller: WebBackendBundle:User:index }
+
+user_contract:
+    path: /contract
+    defaults: { _controller: WebBackendBundle:User:contract }

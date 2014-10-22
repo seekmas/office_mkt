@@ -86,6 +86,14 @@
                 </a>
                 {{ block('list') }}
             </li>
+                {% if matcher.isCurrent(item) %}
+                    <script>
+                        $(function(){
+                            //active the menu top level
+                            $('a.active').parent().parent().parent().addClass("active");
+                        });
+                    </script>
+                {% endif %}
             {%- endif %}
 
     {% endif %}

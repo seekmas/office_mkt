@@ -2,22 +2,30 @@ web_backend_homepage:
     path:     /
     defaults: { _controller: WebBackendBundle:Home:index }
 
-web_contact_home:
-    path: /contact
-    defaults: { _controller: WebBackendBundle:Contact:index }
+user:
+    resource: "@WebBackendBundle/Resources/config/routes/user.yml"
+    prefix: /user
 
-web_company_home:
-    path: /company
-    defaults: { _controller: WebBackendBundle:Company:index }
+contact:
+    resource: "@WebBackendBundle/Resources/config/routes/contact.yml"
+    prefix: /contact
 
-property_position:
-    path: /property/position
-    defaults: { _controller: WebBackendBundle:Property:position }
+company:
+    resource: "@WebBackendBundle/Resources/config/routes/company.yml"
+    prefix: /company
 
-property_stage:
-    path: /property/stage
-    defaults: { _controller: WebBackendBundle:Property:stage }
+project:
+    resource: "@WebBackendBundle/Resources/config/routes/project.yml"
+    prefix: /project
 
-property_industry:
-    path: /property/industry
-    defaults: { _controller: WebBackendBundle:Property:industry }
+position:
+    resource: "@WebBackendBundle/Resources/config/routes/position.yml"
+    prefix: /position
+
+industry:
+    resource: "@WebBackendBundle/Resources/config/routes/industry.yml"
+    prefix: /industry
+
+stage:
+    resource: "@WebBackendBundle/Resources/config/routes/stage.yml"
+    prefix: /stage

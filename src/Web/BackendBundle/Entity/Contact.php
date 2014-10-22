@@ -5,19 +5,18 @@ namespace Web\BackendBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Contacts
+ * Contact
  *
  * @ORM\Table()
  * @ORM\Entity()
  */
-class Contacts
+class Contact
 {
+
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="guid")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="UUID")
      */
     private $id;
 
@@ -43,7 +42,7 @@ class Contacts
     private $phone;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Position" , inversedBy="contacts")
+     * @ORM\ManyToOne(targetEntity="Position" , inversedBy="Contact")
      * @ORM\JoinColumn(name="position_id" , referencedColumnName="id")
      */
     private $position;
@@ -56,7 +55,7 @@ class Contacts
     private $positionId;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Company" , inversedBy="contacts")
+     * @ORM\ManyToOne(targetEntity="Company" , inversedBy="Contact")
      * @ORM\JoinColumn(name="company_id" , referencedColumnName="id")
      */
     private $company;
@@ -69,7 +68,7 @@ class Contacts
     private $companyId;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User" , inversedBy="contacts")
+     * @ORM\ManyToOne(targetEntity="User" , inversedBy="Contact")
      * @ORM\JoinColumn(name="created_by" , referencedColumnName="id")
      */
     private $user;
@@ -104,7 +103,7 @@ class Contacts
      * Set name
      *
      * @param string $name
-     * @return Contacts
+     * @return Contact
      */
     public function setName($name)
     {
@@ -127,7 +126,7 @@ class Contacts
      * Set email
      *
      * @param string $email
-     * @return Contacts
+     * @return Contact
      */
     public function setEmail($email)
     {
@@ -150,7 +149,7 @@ class Contacts
      * Set phone
      *
      * @param integer $phone
-     * @return Contacts
+     * @return Contact
      */
     public function setPhone($phone)
     {
@@ -173,7 +172,7 @@ class Contacts
      * Set position
      *
      * @param integer $position
-     * @return Contacts
+     * @return Contact
      */
     public function setPosition($position)
     {
@@ -196,7 +195,7 @@ class Contacts
      * Set company
      *
      * @param integer $company
-     * @return Contacts
+     * @return Contact
      */
     public function setCompany($company)
     {
@@ -219,7 +218,7 @@ class Contacts
      * Set stage
      *
      * @param integer $stage
-     * @return Contacts
+     * @return Contact
      */
     public function setStage($stage)
     {
@@ -242,7 +241,7 @@ class Contacts
      * Set createdBy
      *
      * @param integer $createdBy
-     * @return Contacts
+     * @return Contact
      */
     public function setCreatedBy($createdBy)
     {
@@ -265,7 +264,7 @@ class Contacts
      * Set createdAt
      *
      * @param \DateTime $createdAt
-     * @return Contacts
+     * @return Contact
      */
     public function setCreatedAt($createdAt)
     {
@@ -293,7 +292,7 @@ class Contacts
     }
 
     /**
-     * @return Contacts
+     * @return Contact
      * @param int $companyId
      */
     public function setCompanyId($companyId)
@@ -311,7 +310,7 @@ class Contacts
     }
 
     /**
-     * @return Contacts
+     * @return Contact
      * @param int $positionId
      */
     public function setPositionId($positionId)
@@ -329,7 +328,7 @@ class Contacts
     }
 
     /**
-     * @return Contacts
+     * @return Contact
      * @param int $stageId
      */
     public function setStageId($stageId)
@@ -347,7 +346,7 @@ class Contacts
     }
 
     /**
-     * @return Contacts
+     * @return Contact
      * @param mixed $user
      */
     public function setUser($user)

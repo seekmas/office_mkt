@@ -19,13 +19,14 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
-//            new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
-//            new JMS\TranslationBundle\JMSTranslationBundle(),
 
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Knp\Bundle\TimeBundle\KnpTimeBundle(),
             new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
             //new Snc\RedisBundle\SncRedisBundle(),
-            new Knp\Bundle\TimeBundle\KnpTimeBundle(),
+
+            new Mmoreram\HttpHeadersBundle\HttpHeadersBundle(),
 
             new Web\BackendBundle\WebBackendBundle(),
             new Web\FrontendBundle\WebFrontendBundle(),

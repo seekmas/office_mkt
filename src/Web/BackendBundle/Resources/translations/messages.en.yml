@@ -1,9 +1,30 @@
 backend:
     crumbs:
         home: Home
+        contact: Contacts
     home:
         bigTile:  Makoto Office Home Page
         bigDescription:  Fast links to clients , company , project , invoice etc.
         create: Create
         list: List
         reimburse: Reimburse
+    contact:
+        bigTile:  Your contacts
+        bigDescription:  Show , Create , Edit , Remove your clients .
+        total: Total
+        create: Create New Contacts
+        list: List All Contacts
+        listDescription: All contacts of yours
+        find: Find My Contacts
+        trash: The Removed Contacts
+
+        contactName: Contact's Name
+        fromCompany: Contact's Company
+        email: Contact's Email
+        position: Contact's Position
+        phone: Contact's Phone Number
+        createdAt: Created At
+        contactInformation: Contact's Information
+        contactsActivity: Contact's Activities
+        newsfeed: Contact's Newsfeed
+        relatedProjectsList: Contact's Related Projects List

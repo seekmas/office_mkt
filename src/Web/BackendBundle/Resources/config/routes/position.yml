@@ -1,0 +1,3 @@
+property_position:
+    path: /
+    defaults: { _controller: WebBackendBundle:Property:position }

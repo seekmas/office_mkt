@@ -1,15 +1,19 @@
 {% extends "WebBackendBundle:Layouts:layouts.html.twig" %}
 
-
+{% block icon %}fa fa-home{% endblock %}
+{% block bigTitle %}{{ 'backend.company.bigTile' | trans | raw }}{% endblock %}
+{% block bigDescription %}{{ 'backend.company.bigDescription' | trans | raw }}{% endblock %}
+{% block topName %}{{ 'backend.crumbs.company' | trans | raw }}{% endblock %}
+{% block subName %}{% endblock %}
 {% block body %}
 
     <div class="row">
 
-    <div class="col-md-12">
-        <div class="block">
-        {% include "WebBackendBundle:Company:index/index_content.html.twig" %}
+        <div class="col-md-12">
+            <div class="block">
+            {% include "WebBackendBundle:Company:index/index_content.html.twig" %}
+            </div>
         </div>
-    </div>
 
     </div>
 {% endblock %}

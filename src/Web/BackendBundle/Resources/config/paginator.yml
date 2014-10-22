@@ -1,0 +1,4 @@
+services:
+    contact_paginator:
+        class: Web\BackendBundle\Paginator\PaginatorFactory
+        arguments: [@service_container , 'contact_entity']

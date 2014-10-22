@@ -1,8 +1,5 @@
 <div class="block">
     <div class="block-title">
-        <div class="block-options pull-right">
-            <a data-original-title="Customize Feed" href="javascript:void(0)" class="btn btn-sm btn-alt btn-default" data-toggle="tooltip" title=""><i class="fa fa-pencil"></i></a>
-        </div>
         <h2><strong>{{ 'backend.home.create' | trans | raw }}</strong></h2>
     </div>
 
@@ -19,9 +16,6 @@
 
 <div class="block">
     <div class="block-title">
-        <div class="block-options pull-right">
-            <a data-original-title="Customize Feed" href="javascript:void(0)" class="btn btn-sm btn-alt btn-default" data-toggle="tooltip" title=""><i class="fa fa-pencil"></i></a>
-        </div>
         <h2><strong>{{ 'backend.home.reimburse' | trans | raw }}</strong></h2>
     </div>
 
@@ -30,6 +24,22 @@
 
             <li id="newsfeed-update-example" class="media">
                 {% include "WebBackendBundle:Home:index/invoice.html.twig" %}
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+<div class="block">
+    <div class="block-title">
+        <h2><strong>{{ 'backend.home.list' | trans | raw }}</strong></h2>
+    </div>
+
+    <div class="block-content-full">
+        <ul class="media-list media-feed media-feed-hover">
+
+            <li id="newsfeed-update-example" class="media">
+                {% include "WebBackendBundle:Home:index/list.html.twig" %}
             </li>
 
         </ul>

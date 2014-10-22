@@ -1,0 +1,25 @@
+{% extends "WebBackendBundle:Layouts:layouts.html.twig" %}
+
+{% block icon %}fa fa-home{% endblock %}
+{% block bigTitle %}{{ 'backend.user.document.bigTile' | trans | raw }}{% endblock %}
+{% block bigDescription %}{{ 'backend.user.document.bigDescription' | trans | raw }}{% endblock %}
+{% block topName %}{{ 'backend.crumbs.user.document' | trans | raw }}{% endblock %}
+{% block subName %}{% endblock %}
+{% block body %}
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="block">
+
+                <div class="block-title">
+                    <h2><strong>{{ 'backend.user.bankAccountInformation' | trans | raw }}</strong></h2>
+                </div>
+
+                {% include "WebBackendBundle:User:index/index_content.html.twig" %}
+
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

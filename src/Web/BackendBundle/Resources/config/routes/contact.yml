@@ -1,0 +1,11 @@
+contact_create:
+    path: /create
+    defaults: { _controller: WebBackendBundle:Contact:index }
+
+contact_list:
+    path: /list
+    defaults: { _controller: WebBackendBundle:Contact:list }
+
+contact_view:
+    path: /{uuid}/view
+    defaults: { _controller: WebBackendBundle:Contact:view }

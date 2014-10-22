@@ -1,0 +1,46 @@
+<div class="block">
+    <!-- Row Styles Title -->
+    <div class="block-title">
+        <h2>{{ 'backend.contact.listDescription' | trans | raw }} ( {{ 'backend.contact.total' | trans | raw }} : {{ pagination.getTotalItemCount }} )</h2>
+    </div>
+    <!-- END Row Styles Title -->
+
+    <!-- Row Styles Content -->
+    <div class="table-responsive">
+        <table class="table table-vcenter">
+            <thead>
+            <tr>
+                <th>{{ knp_pagination_sortable(pagination, 'Name', 'p.name') }}</th>
+                <th{% if pagination.isSorted('p.email') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Email', 'p.email') }}</th>
+                <th{% if pagination.isSorted('p.phone') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'phone', 'p.phone') }}</th>
+                <th{% if pagination.isSorted('p.positionId') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Position', 'p.positionId') }}</th>
+                <th{% if pagination.isSorted('p.company_id') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Company', 'p.companyId') }}</th>
+                <th style="width: 150px;" class="text-center">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for contact in pagination %}
+            <tr>
+                <td><a href="{{ url( 'contact_view' , {'uuid' : contact.id}) }}">{{ contact.name }}</a></td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.phone }}</td>
+                <td>{{ contact.position }}</td>
+                <td>{{ contact.company }}</td>
+                <td class="text-center">
+                    <div class="btn-group btn-group-xs">
+                        <a data-original-title="Edit" href="javascript:void(0)" data-toggle="tooltip" title="" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                        <a data-original-title="Delete" href="javascript:void(0)" data-toggle="tooltip" title="" class="btn btn-danger"><i class="fa fa-times"></i></a>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="navigation">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+
+    </div>
+    <!-- END Row Styles Content -->
+</div>
