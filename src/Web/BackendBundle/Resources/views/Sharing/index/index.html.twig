@@ -1,0 +1,12 @@
+{% extends "WebBackendBundle:Layouts:layouts.html.twig" %}
+
+{% block icon %}fa fa-home{% endblock %}
+{% block bigTitle %}{{ 'backend.sharing.bigTitle' | trans | raw }}{% endblock %}
+{% block bigDescription %}{{ 'backend.sharing.bigDescription' | trans | raw }}{% endblock %}
+{% block topName %}{{ 'backend.crumbs.sharing' | trans | raw }}{% endblock %}
+{% block subName %}{% endblock %}
+{% block body %}
+
+    {% include "WebBackendBundle:Sharing:index/index_content.html.twig" %}
+
+{% endblock %}

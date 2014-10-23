@@ -29,3 +29,7 @@ industry:
 stage:
     resource: "@WebBackendBundle/Resources/config/routes/stage.yml"
     prefix: /stage
+
+sharing:
+    resource: "@WebBackendBundle/Resources/config/routes/sharing.yml"
+    prefix: /sharing

@@ -1,7 +1,21 @@
 {{ form(form) }}
 
-{% for contract in user.document.contract %}
+<div class="table-responsive">
+    <table class="table table-vcenter">
+        <thead>
+        <tr>
+            <th>File</th>
+            <th>Md5</th>
+        </tr>
+        </thead>
 
-    <p>{{ contract.file }}</p>
-
-{% endfor %}
+        <tbody>
+        {% for contract in user.document.contract %}
+        <tr class="active">
+            <td><a href="{{ url('user_contract_download' , {'uuid':contract.id}) }}"> {{ contract.file }}</a></td>
+            <td><a href="javascript:void(0)" class="label label-info">{{ contract.md5 }}</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

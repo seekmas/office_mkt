@@ -5,3 +5,7 @@ user_document:
 user_contract:
     path: /contract
     defaults: { _controller: WebBackendBundle:User:contract }
+
+user_contract_download:
+    path: /{uuid}/download_contract
+    defaults: { _controller: WebBackendBundle:User:download }

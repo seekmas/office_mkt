@@ -40,3 +40,15 @@ services:
         factory_service: doctrine
         factory_method: getRepository
         arguments: [ Web\BackendBundle\Entity\Industry ]
+
+    attachment_entity:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Web\BackendBundle\Entity\Attachment ]
+
+    sharing_category_entity:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Web\BackendBundle\Entity\Sharing\Category ]

@@ -11,4 +11,4 @@ services:
 
     attachment.manager:
         class: Web\BackendBundle\Attachments\AttachmentsManager
-        arguments: [@service_container]
+        arguments: [@service_container,@attachment_entity]

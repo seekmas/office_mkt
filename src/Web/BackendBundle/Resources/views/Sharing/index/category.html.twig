@@ -1,0 +1,25 @@
+<div class="block full">
+    <!-- Menu Title -->
+    <div class="block-title clearfix">
+        <div class="block-options pull-right">
+            <a data-original-title="Refresh" href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title=""><i class="fa fa-refresh"></i></a>
+        </div>
+        <div class="block-options pull-left">
+            <a href="{{ url('sharing_category') }}" class="btn btn-alt btn-sm btn-default"><i class="fa fa-pencil"></i> Create New Category</a>
+        </div>
+    </div>
+    <!-- END Menu Title -->
+
+    <!-- Menu Content -->
+    <ul class="nav nav-pills nav-stacked">
+        {% for category in categories %}
+        <li>
+            <a href="{{ url('specific_category' , {'categoryId':category.id}) }}">
+                <span class="label label-info pull-right">{{ category.attachment | length }}</span>
+                <i class="fa fa-angle-right fa-fw"></i> <strong>{{ category.name }}</strong>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <!-- END Menu Content -->
+</div>

@@ -12,12 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Attachment
 {
+
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="guid")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="UUID")
      */
     private $id;
 
@@ -76,6 +75,17 @@ class Attachment
      * @ORM\Column(name="document_id" , type="integer" , nullable=true )
      */
     private $documentId;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Web\BackendBundle\Entity\Sharing\Category" , inversedBy="attachment")
+     * @ORM\JoinColumn(name="sharing_id" , referencedColumnName="id")
+     */
+    private $sharing;
+
+    /**
+     * @ORM\Column(name="sharing_id" , type="integer" , nullable=true)
+     */
+    private $sharingId;
 
     /**
      * Get id
@@ -273,4 +283,42 @@ class Attachment
         $this->documentId = $documentId;
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getSharing()
+    {
+        return $this->sharing;
+    }
+
+    /**
+     * @return Attachment
+     * @param mixed $sharing
+     */
+    public function setSharing($sharing)
+    {
+        $this->sharing = $sharing;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSharingId()
+    {
+        return $this->sharingId;
+    }
+
+    /**
+     * @return Attachment
+     * @param mixed $sharingId
+     */
+    public function setSharingId($sharingId)
+    {
+        $this->sharingId = $sharingId;
+        return $this;
+    }
+
+
 }

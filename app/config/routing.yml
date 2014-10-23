@@ -1,11 +1,18 @@
+#Web Frontend Bundle
 web_frontend:
     resource: "@WebFrontendBundle/Resources/config/routing.yml"
     prefix:   /
 
+#Web Backend Bundle
 web_backend:
     resource: "@WebBackendBundle/Resources/config/routing.yml"
     prefix:   /{_locale}/admin
 
+#FOS User Bundle
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 
+#FOS Message Bundle
+fos_message:
+    resource: "@FOSMessageBundle/Resources/config/routing.xml"
+    prefix: /optional_routing_prefix

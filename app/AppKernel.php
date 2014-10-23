@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new FOS\RestBundle\FOSRestBundle(),
+            new FOS\MessageBundle\FOSMessageBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
 
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
@@ -27,7 +28,6 @@ class AppKernel extends Kernel
             //new Snc\RedisBundle\SncRedisBundle(),
 
             new Mmoreram\HttpHeadersBundle\HttpHeadersBundle(),
-
             new Web\BackendBundle\WebBackendBundle(),
             new Web\FrontendBundle\WebFrontendBundle(),
         );

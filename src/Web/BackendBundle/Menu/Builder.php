@@ -15,6 +15,7 @@ class Builder extends ContainerAware
         $this
              ->createCategory()
              ->createHome()
+             ->createFileSharing()
              ->createUser()
              ->createInvoice()
              ->createMarketing()
@@ -37,6 +38,13 @@ class Builder extends ContainerAware
     {
         $menu = $this->menu;
         $menu->addChild('Home', ['route' => 'web_backend_homepage' ,  'attributes'=> ['icon' => 'fa fa-home']]);
+        return $this;
+    }
+
+    public function createFileSharing()
+    {
+        $menu = $this->menu;
+        $menu->addChild('File_Sharing', ['route' => 'sharing_home' , 'label'=>'File Sharing' , 'attributes'=> ['icon' => 'fa fa-file-o']]);
         return $this;
     }
 

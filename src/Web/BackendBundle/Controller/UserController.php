@@ -35,7 +35,6 @@ class UserController extends Controller
     {
         $user = $this->getUser();
 
-
         $attachment = new Attachment();
         $attachment->setDocument($user->getDocument());
         $type = new AttachmentType();
@@ -60,5 +59,11 @@ class UserController extends Controller
                 'form' => $form->createView() ,
             ]
         );
+    }
+
+    public function downloadAction(Request $request , $uuid)
+    {
+        $this->flash('success' , 'File Download Successfully!');
+        return $this->get('attachment.manager')->output($uuid);
     }
 }

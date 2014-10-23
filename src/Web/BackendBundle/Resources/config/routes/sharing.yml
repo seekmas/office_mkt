@@ -1,0 +1,11 @@
+sharing_home:
+    path: /
+    defaults: { _controller: WebBackendBundle:Sharing:index }
+
+specific_category:
+    path: /{categoryId}/sharing
+    defaults: { _controller: WebBackendBundle:Sharing:index }
+
+sharing_category:
+    path: /category
+    defaults: { _controller: WebBackendBundle:Sharing:createCategory }
