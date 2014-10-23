@@ -132,6 +132,7 @@ class Document
 
     /**
      * @ORM\OneToMany(targetEntity="Attachment" , mappedBy="document")
+     * @ORM\OrderBy({"createdAt" = "DESC"})
      */
     private $contract;
 

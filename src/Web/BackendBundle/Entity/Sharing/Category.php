@@ -30,6 +30,7 @@ class Category
 
     /**
      * @ORM\OneToMany(targetEntity="Web\BackendBundle\Entity\Attachment" , mappedBy="sharing")
+     * @ORM\OrderBy({"createdAt" = "DESC"})
      */
     private $attachment;
 
