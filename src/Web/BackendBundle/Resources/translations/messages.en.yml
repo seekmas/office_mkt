@@ -2,24 +2,25 @@ backend:
     crumbs:
         home: Home
         contact: Contacts
+        client: Client
         sharing: Sharing Files
         user:
             contract: Account Information & Contract
     home:
-        bigTile:  Makoto Office Home Page
+        bigTitle:  Makoto Office Home Page
         bigDescription:  Fast links to clients , company , project , invoice etc.
         create: Create
         list: List
         reimburse: Reimburse
     contact:
-        bigTile:  Your contacts
+        bigTitle:  Your contacts
         bigDescription:  Show , Create , Edit , Remove your clients .
         total: Total
         create: Create New Contacts
         list: List All Contacts
         listDescription: All contacts of yours
         find: Find My Contacts
-        trash: The Removed Contacts
+        trash: Trash Box
         contactName: Contact's Name
         fromCompany: Contact's Company
         email: Contact's Email
@@ -32,7 +33,7 @@ backend:
         relatedProjectsList: Contact's Related Projects List
     user:
         contract:
-            bigTile: Review account information & Upload contracts
+            bigTitle: Review account information & Upload contracts
             bigDescription: Review my bank account and upload/download contracts
             myAccountInfo: Account Information
             chineseName: Chinese Name
@@ -51,3 +52,9 @@ backend:
     sharing:
         bigTitle: Sharing Files & Downloading
         bigDescription: Mot loves sharing
+
+    client:
+        list: Clients List
+        create: Create New Client
+        find: Find Client
+        trash: Trash Box

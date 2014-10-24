@@ -7,16 +7,45 @@ use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Response;
 use Web\BackendBundle\Entity\Attachment;
 
+/**
+ * Class AttachmentsManager
+ * @package Web\BackendBundle\Attachments
+ */
 class AttachmentsManager implements AttachmentsManagerInterface
 {
+    /**
+     * @var
+     */
     private $container;
+    /**
+     * @var Filesystem
+     */
     private $filesystem;
+    /**
+     * @var string
+     */
     private $dir;
+    /**
+     * @var string
+     */
     private $save_dir;
+    /**
+     * @var
+     */
     private $form;
+    /**
+     * @var
+     */
     private $attachment;
+    /**
+     * @var
+     */
     private $entity;
 
+    /**
+     * @param $container
+     * @param $entity
+     */
     public function __construct($container,$entity)
     {
         $this->container = $container;
@@ -32,12 +61,20 @@ class AttachmentsManager implements AttachmentsManagerInterface
         }
     }
 
+    /**
+     * @param Form $form
+     * @param Attachment $attachment
+     * @return NULL
+     */
     public function bind(Form $form , Attachment $attachment)
     {
         $this->form = $form;
         $this->attachment = $attachment;
     }
 
+    /**
+     * @return NULL
+     */
     public function save()
     {
         if($this->form == NULL)
@@ -59,6 +96,10 @@ class AttachmentsManager implements AttachmentsManagerInterface
         $this->attachment->setMd5(md5_file($this->save_dir.'/'.$file->getClientOriginalName()));
     }
 
+    /**
+     * @param $uuid
+     * @return Response
+     */
     public function output($uuid)
     {
         $file = $this->entity->find($uuid);

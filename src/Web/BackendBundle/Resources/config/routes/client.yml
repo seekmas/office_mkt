@@ -1,0 +1,11 @@
+client_home:
+    path: /
+    defaults: { _controller: WebBackendBundle:Client:index }
+
+client_list:
+    path: /list
+    defaults: { _controller: WebBackendBundle:Client:list }
+
+client_list_by:
+    path: /{ucwords}/list
+    defaults: { _controller: WebBackendBundle:Client:list }

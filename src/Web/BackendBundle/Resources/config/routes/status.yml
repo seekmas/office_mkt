@@ -1,0 +1,3 @@
+property_status:
+    path: /
+    defaults: { _controller: WebBackendBundle:Property:contractStatus }

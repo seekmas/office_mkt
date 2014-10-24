@@ -1,0 +1,7 @@
+invoice_home:
+    path: /
+    defaults: { _controller: WebBackendBundle:Invoice:index }
+
+select_project:
+    path: /{clientId}
+    defaults: { _controller: WebBackendBundle:Invoice:project }

@@ -1,0 +1,11 @@
+contract_create:
+    path: /create
+    defaults: { _controller: WebBackendBundle:Contract:index }
+
+contract_list:
+    path: /list
+    defaults: { _controller: WebBackendBundle:Contract:list }
+
+contract_edit:
+    path: /{id}/edit
+    defaults: { _controller: WebBackendBundle:Contract:edit }

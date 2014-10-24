@@ -1,0 +1,22 @@
+<ul class="task-list">
+    {% for contract in user.contract %}
+    <li class="info">
+        <a href="{{ url('contract_edit' , {'id':contract.id}) }}" class="task-close"><i class="fa fa-edit"></i></a>
+        <div class="row">
+        <div class="col-md-6">
+
+            <span class="label label-info">{{ contract.contractStatus }}</span>
+
+            <label class="checkbox-inline">
+                <a href="">{{ contract.projectName }}</a>
+            </label>
+
+        </div>
+
+        <div class="col-md-6">
+            {{ contract.contractNo }}
+        </div>
+
+    </li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,23 @@
+<div class="alert alert-success">
+    [ Step 2 ] Select your current's project
+</div>
+
+<div class="row style-alt">
+    {% for contract in client.contract %}
+        <!-- Contact Widget -->
+        <a href="">
+            <div class="col-sm-4 col-lg-4">
+
+                <div class="widget">
+                    <div class="widget-simple">
+                        <h4>
+                            {{ contract.projectName }}
+                        </h4>
+                    </div>
+                </div>
+
+            </div>
+        </a>
+        <!-- END Contact Widget -->
+    {% endfor %}
+</div>

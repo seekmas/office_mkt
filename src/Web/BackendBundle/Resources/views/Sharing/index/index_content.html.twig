@@ -28,9 +28,6 @@
     <div class="block">
         <!-- Messages List Title -->
         <div class="block-title">
-            <div class="block-options pull-right">
-                <a data-original-title="Settings" href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title=""><i class="fa fa-cog"></i></a>
-            </div>
             <h2>Upload File {% if category is not empty %}to <span class="label label-info">{{ category.name }}</span>{% else %}Here{% endif %}</h2>
         </div>
 
@@ -43,9 +40,6 @@
 <div class="block">
     <!-- Messages List Title -->
         <div class="block-title">
-            <div class="block-options pull-right">
-                <a data-original-title="Settings" href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title=""><i class="fa fa-cog"></i></a>
-            </div>
             <h2>File Explorer - {% if category is not empty %}{{ category.name }} <strong>( Include {{ category.attachment | length }} {% if category.attachment | length >1 %}Files{% else %}File{% endif %} )</strong>{% endif %}</h2>
         </div>
     <!-- END Messages List Title -->
@@ -61,13 +55,6 @@
             <tr>
                 <td><a href="{{ url('user_contract_download' , {'uuid':attachment.id}) }}">{{ attachment.file }}</a></td>
                 <td>File Type: {{ attachment.mime }}</td>
-            </tr>
-            <tr>
-                <td>
-                    File MD5: {{ attachment.md5 }}
-                </td>
-                <td>{{ attachment.user }} uploaded in <em>{{ time_diff(attachment.createdAt) }}</em></td>
-
             </tr>
             {% endfor %}
 

@@ -1,0 +1,38 @@
+{% extends "WebBackendBundle:Layouts:layouts.html.twig" %}
+
+{% block icon %}fa fa-home{% endblock %}
+{% block bigTitle %}{{ 'backend.client.bigTitle' | trans | raw }}{% endblock %}
+{% block bigDescription %}{{ 'backend.client.bigDescription' | trans | raw }}{% endblock %}
+{% block topName %}{{ 'backend.crumbs.client' | trans | raw }}{% endblock %}
+{% block subName %}{% endblock %}
+{% block body %}
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            {% include "WebBackendBundle:Client:link.html.twig" %}
+
+            <div class="block">
+
+                <div class="block-title">
+                    <div class="block-options text-left">
+                        <a href="{{ url('client_list') }}" class="btn btn-sm btn-alt {% if ucwords == 1024 %}btn-info{% else %}btn-default{% endif %}">All</a>
+
+                        {% for i in 65..90 %}
+                        <a href="{{ url('client_list_by' , {'ucwords':i|chr}) }}" class="btn btn-sm btn-alt {% if ucwords == i | chr %}btn-info{% else %}btn-default{% endif %}">{{ i|chr }}</a>
+                        {% endfor %}
+
+                        {% for i in 48..57 %}
+                            <a href="{{ url('client_list_by' , {'ucwords':i|chr}) }}" class="btn btn-sm btn-alt {% if ucwords == i | chr %}btn-info{% else %}btn-default{% endif %}">{{ i|chr }}</a>
+                        {% endfor %}
+
+                    </div>
+                </div>
+
+                {% include "WebBackendBundle:Client:list/index_content.html.twig" %}
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

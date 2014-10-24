@@ -1,12 +1,13 @@
 {% extends "WebBackendBundle:Layouts:layouts.html.twig" %}
 
 {% block icon %}fa fa-home{% endblock %}
-{% block bigTitle %}{{ 'backend.home.bigTile' | trans | raw }}{% endblock %}
+{% block bigTitle %}{{ 'backend.home.bigTitle' | trans | raw }}{% endblock %}
 {% block bigDescription %}{{ 'backend.home.bigDescription' | trans | raw }}{% endblock %}
 {% block topName %}{{ 'backend.crumbs.home' | trans | raw }}{% endblock %}
 {% block subName %}{% endblock %}
 {% block body %}
 
+    {{ form(form) }}
     {% include "WebBackendBundle:Home:index/index_content.html.twig" %}
 
 {% endblock %}

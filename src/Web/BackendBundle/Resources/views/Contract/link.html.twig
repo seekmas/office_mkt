@@ -1,0 +1,38 @@
+<div class="header-section">
+    <div class="row">
+        <!-- Top Stats -->
+        <div class="col-md-12 col-lg-12">
+            <div class="row text-center">
+                <div class="col-xs-4 col-sm-3">
+                    <h4>
+                        <a class="btn btn-info" href="{{ url('contract_list') }}"><i class="fa fa-list"></i> {{ 'backend.contact.list' | trans | raw }}</a>
+                    </h4>
+                </div>
+
+                <div class="col-xs-4 col-sm-3">
+                    <h4>
+                        <a class="btn btn-primary" href="{{ url('contract_create') }}"><i class="fa fa-plus"></i> {{ 'backend.contact.create' | trans | raw }}</a>
+                    </h4>
+                </div>
+
+                <div class="col-xs-4 col-sm-3">
+                    <h4>
+                        <a class="btn btn-success" href="{{ url('contact_create') }}"><i class="fa fa-search"></i> {{ 'backend.contact.find' | trans | raw }}</a>
+                    </h4>
+                </div>
+
+                <div class="col-xs-4 col-sm-3">
+                    <h4>
+                        <a class="btn btn-danger" href="{{ url('contact_create') }}"><i class="fa fa-exclamation-triangle"></i> {{ 'backend.contact.trash' | trans | raw }}</a>
+                    </h4>
+                </div>
+
+                <!-- We hide the last stat to fit the other 3 on small devices -->
+                <div class="col-sm-3 hidden-xs">
+
+                </div>
+            </div>
+        </div>
+        <!-- END Top Stats -->
+    </div>
+</div>

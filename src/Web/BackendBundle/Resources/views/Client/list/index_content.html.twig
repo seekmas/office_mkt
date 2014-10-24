@@ -1,0 +1,20 @@
+<div class="row style-alt">
+{% for client in clients %}
+<!-- Contact Widget -->
+<div class="col-sm-4 col-lg-4">
+    <div class="widget">
+        <div class="widget-simple">
+            <h4>
+                <a href="page_ready_user_profile.html">
+                {{ client.fullName }} - {{ client.shortName }}
+                </a>
+            </h4>
+            <h4 class="widget-content">
+                <a href="#"></a>
+            </h4>
+        </div>
+    </div>
+</div>
+<!-- END Contact Widget -->
+{% endfor %}
+</div>

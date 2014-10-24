@@ -88,6 +88,17 @@ class Attachment
     private $sharingId;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Client" , inversedBy="attachment")
+     * @ORM\JoinColumn(name="client_id" , referencedColumnName="id")
+     */
+    private $client;
+
+    /**
+     * @ORM\Column(name="client_id" , type="integer" , nullable=true)
+     */
+    private $clientId;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -320,5 +331,40 @@ class Attachment
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
+
+    /**
+     * @return Attachment
+     * @param mixed $client
+     */
+    public function setClient($client)
+    {
+        $this->client = $client;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getClientId()
+    {
+        return $this->clientId;
+    }
+
+    /**
+     * @return Attachment
+     * @param mixed $clientId
+     */
+    public function setClientId($clientId)
+    {
+        $this->clientId = $clientId;
+        return $this;
+    }
 
 }

@@ -2,6 +2,14 @@ web_backend_homepage:
     path:     /
     defaults: { _controller: WebBackendBundle:Home:index }
 
+client:
+    resource: "@WebBackendBundle/Resources/config/routes/client.yml"
+    prefix: /client
+
+contract:
+    resource: "@WebBackendBundle/Resources/config/routes/contract.yml"
+    prefix: /contract
+
 user:
     resource: "@WebBackendBundle/Resources/config/routes/user.yml"
     prefix: /user
@@ -9,6 +17,10 @@ user:
 contact:
     resource: "@WebBackendBundle/Resources/config/routes/contact.yml"
     prefix: /contact
+
+invoice:
+    resource: "@WebBackendBundle/Resources/config/routes/invoice.yml"
+    prefix: /invoice
 
 company:
     resource: "@WebBackendBundle/Resources/config/routes/company.yml"
@@ -29,6 +41,10 @@ industry:
 stage:
     resource: "@WebBackendBundle/Resources/config/routes/stage.yml"
     prefix: /stage
+
+status:
+    resource: "@WebBackendBundle/Resources/config/routes/status.yml"
+    prefix: /status
 
 sharing:
     resource: "@WebBackendBundle/Resources/config/routes/sharing.yml"

@@ -1,0 +1,14 @@
+{% extends "WebBackendBundle:Layouts:layouts.html.twig" %}
+
+{% block icon %}fa fa-home{% endblock %}
+{% block bigTitle %}{{ 'backend.invoice.bigTitle' | trans | raw }}{% endblock %}
+{% block bigDescription %}{{ 'backend.invoice.bigDescription' | trans | raw }}{% endblock %}
+{% block topName %}{{ 'backend.crumbs.invoice' | trans | raw }}{% endblock %}
+{% block subName %}{% endblock %}
+{% block body %}
+
+    <div class="block full">
+        {% include "WebBackendBundle:Invoice:project/index_content.html.twig" %}
+    </div>
+
+{% endblock %}

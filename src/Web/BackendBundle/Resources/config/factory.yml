@@ -5,6 +5,12 @@ services:
         factory_method: getRepository
         arguments: [ Web\BackendBundle\Entity\User ]
 
+    client_entity:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Web\BackendBundle\Entity\Client ]
+
     project_entity:
         class: Doctrine\Common\Persistence\ObjectRepository
         factory_service: doctrine
@@ -52,3 +58,15 @@ services:
         factory_service: doctrine
         factory_method: getRepository
         arguments: [ Web\BackendBundle\Entity\Sharing\Category ]
+
+    contract_entity:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Web\BackendBundle\Entity\Contract ]
+
+    status_entity:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Web\BackendBundle\Entity\ContractStatus ]

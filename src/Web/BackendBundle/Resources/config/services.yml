@@ -9,6 +9,11 @@ services:
         tags:
             - { name: twig.extension }
 
+    twig.char.extension:
+        class: Web\BackendBundle\Twig\CharExtension
+        tags:
+            - { name: twig.extension }
+
     attachment.manager:
         class: Web\BackendBundle\Attachments\AttachmentsManager
         arguments: [@service_container,@attachment_entity]

@@ -35,6 +35,12 @@ class UserController extends Controller
     {
         $user = $this->getUser();
 
+        if($user->getDocument() == NULL)
+        {
+            $this->flash('danger' , 'Finish your profile first ! ');
+            return $this->redirect('user_document');
+        }
+
         $attachment = new Attachment();
         $attachment->setDocument($user->getDocument());
         $type = new AttachmentType();

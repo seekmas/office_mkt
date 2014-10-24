@@ -17,7 +17,7 @@ class Builder extends ContainerAware
              ->createHome()
              ->createFileSharing()
              ->createUser()
-             ->createInvoice()
+             //->createInvoice()
              ->createMarketing()
              ->configCategory()
              ->createProperty()
@@ -53,8 +53,11 @@ class Builder extends ContainerAware
         $menu = $this->menu;
         $menu->addChild('My_Dashboard', [ 'label' => 'My Dashboard' , 'route' => '' ,  'attributes'=> ['icon' => 'fa fa-file-code-o']]);
 
-        $menu['My_Dashboard']->addChild('Account' , ['route' => 'user_document' , 'attributes' => ['icon' => 'fa fa-file-word-o'] ]);
-        $menu['My_Dashboard']->addChild('Contract' , ['route' => 'user_contract' , 'attributes' => ['icon' => 'fa fa-paw'] ]);
+        $menu['My_Dashboard']->addChild('Profile' , ['route' => 'user_document' , 'attributes' => ['icon' => 'fa fa-file-word-o'] ]);
+        $menu['My_Dashboard']->addChild('Account' , ['route' => 'user_contract' , 'attributes' => ['icon' => 'fa fa-paw'] ]);
+        $menu['My_Dashboard']->addChild('Client' , ['route' => 'client_list' , 'attributes' => ['icon' => 'fa fa-paw'] ]);
+        $menu['My_Dashboard']->addChild('Contract' , ['route' => 'contract_list' , 'attributes' => ['icon' => 'fa fa-paw'] ]);
+        $menu['My_Dashboard']->addChild('Invoice' , ['route' => 'invoice_home' , 'attributes' => ['icon' => 'fa fa-paw'] ]);
 
         return $this;
     }
@@ -95,6 +98,9 @@ class Builder extends ContainerAware
         $menu['Property']->addChild('Position', ['route' => 'property_position', 'attributes' => ['icon'=>'fa fa-cube']]);
         $menu['Property']->addChild('Stage', ['route' => 'property_stage' , 'attributes' => ['icon'=>'fa fa-sitemap']]);
         $menu['Property']->addChild('Industry', ['route' => 'property_industry' , 'attributes' => ['icon' => 'fa fa-cubes']]);
+        $menu['Property']->addChild('Status', ['route' => 'property_status' , 'attributes' => ['icon' => 'fa fa-cubes']]);
+
+
 
         return $this;
     }

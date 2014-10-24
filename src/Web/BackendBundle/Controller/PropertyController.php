@@ -3,9 +3,11 @@
 namespace Web\BackendBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Web\BackendBundle\Entity\ContractStatus;
 use Web\BackendBundle\Entity\Industry;
 use Web\BackendBundle\Entity\Position;
 use Web\BackendBundle\Entity\Stage;
+use Web\BackendBundle\Form\ContractStatusType;
 use Web\BackendBundle\Form\IndustryType;
 use Web\BackendBundle\Form\PositionType;
 use Web\BackendBundle\Form\StageType;
@@ -63,7 +65,7 @@ class PropertyController extends Controller
             if($exist)
             {
                 $this->flash('danger' , $name.' is existed!');
-                return $this->redirect('stage_position');
+                return $this->redirect('property_stage');
             }
 
             $em = $this->getManager();
@@ -71,7 +73,7 @@ class PropertyController extends Controller
             $em->flush();
 
             $this->flash('success' , $name.' is created successful!');
-            return $this->redirect('stage_position');
+            return $this->redirect('property_stage');
         }
 
         $stages = $this->get('stage_entity')->findAll();
@@ -111,5 +113,30 @@ class PropertyController extends Controller
         );
     }
 
-    public function tagAction(Request $request){}
+    public function contractStatusAction(Request $request)
+    {
+        $status = new ContractStatus();
+        $type = new ContractStatusType();
+
+        $form = $this->getForm($status,$type,$request);
+
+        if($form->isValid())
+        {
+            $em = $this->getManager();
+            $em->persist($status);
+            $em->flush();
+
+            $this->flash('success' , $status->getName().'添加成功');
+            return $this->redirect('property_status');
+        }
+
+        $list = $this->get('status_entity')->findAll();
+
+        return $this->render('WebBackendBundle:Property:contractStatus/index.html.twig' ,
+            [
+                'form'=>$form->createView() ,
+                'list' => $list
+            ]
+        );
+    }
 }
