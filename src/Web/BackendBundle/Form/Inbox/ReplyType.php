@@ -1,11 +1,11 @@
 <?php
 
-namespace Web\BackendBundle\Form;
+namespace Web\BackendBundle\Form\Inbox;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class TestType extends AbstractType
+class ReplyType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -14,10 +14,8 @@ class TestType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('time' , 'datetime')
+            ->add('body' , 'text' , ['label' => 'Reply To'])
         ;
-
-        $builder->add('submit' , 'submit');
     }
 
     /**
@@ -25,6 +23,6 @@ class TestType extends AbstractType
      */
     public function getName()
     {
-        return 'test_form';
+        return 'mailbox_reply';
     }
 }

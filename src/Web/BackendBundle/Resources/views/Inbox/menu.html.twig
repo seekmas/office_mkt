@@ -1,0 +1,46 @@
+<div class="block full">
+    <!-- Menu Title -->
+    <div class="block-title clearfix">
+        <div class="block-options pull-right">
+            <a data-original-title="Refresh" href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title=""><i class="fa fa-refresh"></i></a>
+        </div>
+        <div class="block-options pull-left">
+            <a href="{{ url('inbox_send') }}" class="btn btn-alt btn-sm btn-default"><i class="fa fa-pencil"></i> {{ 'backend.inbox.sendMessage' | trans | raw }} </a>
+        </div>
+    </div>
+    <!-- END Menu Title -->
+
+    <!-- Menu Content -->
+    <ul class="nav nav-pills nav-stacked">
+        <li class="active">
+            <a href="javascript:void(0)">
+                <span class="badge pull-right">{{ fos_message_nb_unread() }}</span>
+                <i class="fa fa-angle-right fa-fw"></i> <strong>Inbox</strong>
+            </a>
+        </li>
+
+        <li>
+            <a href="javascript:void(0)">
+                <i class="fa fa-angle-right fa-fw"></i> <strong>Sent</strong>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">
+                <span class="badge pull-right">2</span>
+                <i class="fa fa-angle-right fa-fw"></i> <strong>Drafts</strong>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">
+                <i class="fa fa-angle-right fa-fw"></i> <strong>Archive</strong>
+            </a>
+        </li>
+
+        <li>
+            <a href="javascript:void(0)">
+                <i class="fa fa-angle-right fa-fw"></i> <strong>Trash</strong>
+            </a>
+        </li>
+    </ul>
+    <!-- END Menu Content -->
+</div>

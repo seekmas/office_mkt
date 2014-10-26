@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ContractStatusType extends AbstractType
+class AvatarType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,7 +15,7 @@ class ContractStatusType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
+            ->add('avatar' , 'file' , ['label' => 'Select a photo'])
         ;
 
         $builder->add('submit' , 'submit');
@@ -27,7 +27,7 @@ class ContractStatusType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Web\BackendBundle\Entity\ContractStatus'
+            'data_class' => 'Web\BackendBundle\Entity\Avatar'
         ));
     }
 
@@ -36,6 +36,6 @@ class ContractStatusType extends AbstractType
      */
     public function getName()
     {
-        return 'web_backendbundle_contractstatus';
+        return 'web_backendbundle_avatar';
     }
 }

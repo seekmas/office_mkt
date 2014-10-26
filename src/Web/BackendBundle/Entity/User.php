@@ -30,6 +30,12 @@ class User extends BaseUser implements ParticipantInterface
      */
     private $contract;
 
+    /**
+     * @ORM\OneToOne(targetEntity="Avatar" , mappedBy="user")
+     */
+    private $avatar;
+
+
     public function __construct()
     {
         parent::__construct();
@@ -69,6 +75,24 @@ class User extends BaseUser implements ParticipantInterface
     public function setContract($contract)
     {
         $this->contract[] = $contract;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+
+    /**
+     * @return User
+     * @param mixed $avatar
+     */
+    public function setAvatar($avatar)
+    {
+        $this->avatar = $avatar;
         return $this;
     }
 }

@@ -7,7 +7,11 @@
 {% block subName %}{% endblock %}
 {% block body %}
 
-    {% include "WebBackendBundle:Contract:link.html.twig" %}
-        {% include "WebBackendBundle:Contract:list/index_content.html.twig" %}
+
+    <div class="block full">
+
+        {% include "WebBackendBundle:Inbox:message/index_content.html.twig" %}
+
+    </div>
 
 {% endblock %}

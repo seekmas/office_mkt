@@ -3631,7 +3631,7 @@ p, .table, .alert, .carousel {
 
     .chatui-talk,
     .chatui-input {
-        right: 250px;
+        right: 0;
         left: 0;
     }
 

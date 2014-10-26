@@ -161,9 +161,7 @@
 {% block file_widget %}
     {% spaceless %}
         {% set type = type|default('file') %}
-
             <input type="{{ type }}" {{ block('widget_attributes') }} />
-
     {% endspaceless %}
 {% endblock file_widget %}
 
@@ -259,7 +257,7 @@
     {%- else -%}
         {% set form_method = "POST" %}
     {%- endif -%}
-    <form class="form-horizontal form-bordered" name="{{ form.vars.name }}" method="{{ form_method|lower }}" action="{{ action }}"{% for attrname, attrvalue in attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}{% if multipart %} enctype="multipart/form-data"{% endif %}>
+    <form {% for attrname, attrvalue in attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %} class="form-horizontal form-bordered" name="{{ form.vars.name }}" method="{{ form_method|lower }}" action="{{ action }}"{% for attrname, attrvalue in attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}{% if multipart %} enctype="multipart/form-data"{% endif %}>
     {%- if form_method != method -%}
         <input type="hidden" name="_method" value="{{ method }}" />
     {%- endif -%}

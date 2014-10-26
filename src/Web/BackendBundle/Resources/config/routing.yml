@@ -10,6 +10,10 @@ contract:
     resource: "@WebBackendBundle/Resources/config/routes/contract.yml"
     prefix: /contract
 
+inbox:
+    resource: "@WebBackendBundle/Resources/config/routes/inbox.yml"
+    prefix: /inbox
+
 user:
     resource: "@WebBackendBundle/Resources/config/routes/user.yml"
     prefix: /user

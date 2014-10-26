@@ -58,3 +58,5 @@ backend:
         create: Create New Client
         find: Find Client
         trash: Trash Box
+    inbox:
+        sendMessage: Send Message

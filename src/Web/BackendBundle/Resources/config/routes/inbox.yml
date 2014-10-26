@@ -1,0 +1,15 @@
+inbox_read:
+    path: /
+    defaults: { _controller: WebBackendBundle:Inbox:index }
+
+inbox_message:
+    path: /{id}
+    defaults: { _controller: WebBackendBundle:Inbox:message }
+
+inbox_sent:
+    path: /sent
+    defaults: { _controller: WebBackendBundle:Inbox:sent }
+
+inbox_send:
+    path: /send
+    defaults: { _controller: WebBackendBundle:Inbox:send }

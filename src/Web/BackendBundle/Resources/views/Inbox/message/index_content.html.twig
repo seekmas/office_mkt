@@ -1,0 +1,92 @@
+<div class="row">
+<!-- Inbox Menu -->
+<div class="col-sm-4 col-lg-3">
+    <!-- Menu Block -->
+    {% include "WebBackendBundle:Inbox:menu.html.twig" %}
+    <!-- END Menu Block -->
+</div>
+<!-- END Inbox Menu -->
+
+<!-- View Message -->
+<div class="col-sm-8 col-lg-9">
+    <!-- View Message Block -->
+    <div class="block full">
+        <!-- View Message Title -->
+        <div class="block-title">
+            <h2><strong>{{ thread.subject }}</strong> <small><span class="label label-success">Work</span></small></h2>
+        </div>
+        <!-- END View Message Title -->
+
+        <!-- Message Meta -->
+        <table class="table table-borderless table-vcenter remove-margin">
+            <tbody>
+            <tr>
+                <td class="text-center" style="width: 80px;">
+                    <a href="page_ready_user_profile.html" class="pull-left">
+                        <img src="#" alt="Avatar" class="img-circle">
+                    </a>
+                </td>
+                <td class="hidden-xs">
+                    <a href="#"><strong>{{ thread.participants[0].username }}</strong></a> to <a href="#"><strong>{{ thread.participants[1].username }}</strong></a>
+                </td>
+                <td class="text-right"><strong>{{ thread.createdAt | date('Y-m-d H:i:s') }}</strong></td>
+            </tr>
+            </tbody>
+        </table>
+        <hr>
+        <!-- END Message Meta -->
+
+        <!-- Message Body -->
+
+        {{ thread.getFirstMessage.body | raw }}
+
+        <hr>
+        <!-- END Message Body -->
+
+
+
+
+        <div style="height: 600px;" class="chatui-container block-content-full">
+            <!-- Talk -->
+            <div class="chatui-talk">
+                <div style="position: relative; overflow: hidden; width: auto; height: 550px;" class="slimScrollDiv"><div style="height: 550px; overflow: hidden; width: auto;" class="chatui-talk-scroll">
+                        <ul>
+                            {% for key , message in thread.messages %}
+
+                                {% if key > 0 %}
+
+                                    <li class="chatui-talk-msg {% if message.sender == app.user %}chatui-talk-msg-highlight themed-border{% endif %}" title="reply at {{ time_diff(message.createdAt) }}">
+                                        <img src="{{ asset('backend/img/placeholders/avatars/avatar6.jpg') }}" alt="Avatar" class="img-circle chatui-talk-msg-avatar">{{ message.sender.username }}: {{ message.body | raw }}
+                                    </li>
+
+                                {% endif %}
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                    </div>
+            </div>
+            <!-- END Talk -->
+
+            <!-- Input -->
+            <div class="chatui-input">
+
+                {{ form_start(replyForm , {'attr' : {'class':'form-horizontal form-control-borderless remove-margin'}}) }}
+
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-angle-right"></i></span>
+                        {{ form_widget(replyForm.body) }}
+                    </div>
+
+
+                {{ form_end(replyForm) }}
+
+            </div>
+            <!-- END Input -->
+        </div>
+
+    </div>
+    <!-- END View Message Block -->
+</div>
+<!-- END View Message -->
+</div>
