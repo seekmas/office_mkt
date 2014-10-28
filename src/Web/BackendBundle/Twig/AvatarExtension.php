@@ -24,8 +24,10 @@ class AvatarExtension extends \Twig_Extension
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
         $avatar = $user->getAvatar();
-
-        return $avatar ? '<img src="./'.$avatar->getAvatar.'" />' : '';
+        if($avatar)
+            return $avatar ? '<img src="./'.$avatar->getAvatar.'" />' : '';
+        else
+            return ;
     }
 
     /**
