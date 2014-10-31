@@ -16,7 +16,7 @@ class AvatarExtension extends \Twig_Extension
     {
         return
             [
-                'user_avatar' => new \Twig_SimpleFunction($this, 'user_avatar' , ['is_safe' => true])
+                'user_avatar' => new \Twig_Function_Method($this, 'user_avatar' , ['is_safe' => true])
             ];
     }
 
@@ -39,5 +39,4 @@ class AvatarExtension extends \Twig_Extension
     {
         return 'twig_avatar_extension';
     }
-
 }

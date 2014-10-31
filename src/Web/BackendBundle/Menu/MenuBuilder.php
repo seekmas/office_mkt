@@ -1,31 +1,56 @@
 <?php
-// src/Acme/DemoBundle/Menu/Builder.php
+
 namespace Web\BackendBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
-use Symfony\Component\DependencyInjection\ContainerAware;
+use Symfony\Component\HttpFoundation\Request;
 
-class Builder extends ContainerAware
+class MenuBuilder
 {
+    private $factory;
+
     private $menu;
-    public function mainMenu(FactoryInterface $factory, array $options)
+
+    private $container;
+
+    /**
+     * @param FactoryInterface $factory
+     */
+    public function __construct(FactoryInterface $factory , $container)
     {
-        $this->menu = $factory->createItem('root');
+        $this->factory = $factory;
+        $this->container = $container;
+    }
 
-        $security = $this->get('security.context')->getToken();
+    public function createMainMenu(Request $request)
+    {
 
+        $security = $this->get('security.context');
 
-        $this
-             ->createCategory()
-             ->createHome()
-             ->createFileSharing()
-             ->createInbox()
-             ->createUser()
-             //->createInvoice()
-             ->createMarketing()
-             ->configCategory()
-             ->createProperty()
-        ;
+        $this->menu = $this->factory->createItem('root');
+
+        if( $security->isGranted('ROLE_USER'))
+        {
+            $this
+                ->createCategory()
+                ->createHome()
+                ->createFileSharing()
+            ;
+
+        }elseif( $security->isGranted('ROLE_ADMIN'))
+        {
+            $this
+                ->createCategory()
+                ->createHome()
+                ->createFileSharing()
+                ->createInbox()
+                ->createUser()
+                ->createMarketing()
+                ->configCategory()
+                ->createProperty()
+            ;
+        }
+
 
         return $this->menu;
     }
@@ -117,4 +142,8 @@ class Builder extends ContainerAware
         return $this;
     }
 
+    public function get($service)
+    {
+        return $this->container->get($service);
+    }
 }
