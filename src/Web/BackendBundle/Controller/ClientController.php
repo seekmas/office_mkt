@@ -2,6 +2,7 @@
 
 namespace Web\BackendBundle\Controller;
 
+use Doctrine\ORM\EntityNotFoundException;
 use Symfony\Component\HttpFoundation\Request;
 use Web\BackendBundle\Entity\Client;
 use Web\BackendBundle\Form\ClientType;
@@ -43,22 +44,35 @@ class ClientController extends Controller
             $query = $this->get('client_entity')
                             ->createQueryBuilder('c');
             $clients = $query->select('c')
-                  ->where('c.userId = :userId')
-                  ->AndWhere('c.shortName LIKE :ucwords')
-                  ->setParameter('userId' , $user->getId())
+                  ->where('c.shortName LIKE :ucwords')
                   ->setParameter('ucwords' , $ucwords.'%')
                   ->orderBy('c.createdAt' , 'desc')
                   ->getQuery()
                   ->getResult();
         }else
         {
-            $clients = $this->get('client_entity')->findBy(['userId'=>$user->getId()]);
+            $clients = $this->get('client_entity')->findAll();
         }
 
         return $this->render('WebBackendBundle:Client:list/index.html.twig' ,
             [
                 'ucwords' => isset($ucwords) ? $ucwords : 1024 ,
                 'clients'=>$clients
+            ]
+        );
+    }
+
+    public function updateAction(Request $request , $id)
+    {
+        $client = $this->get('client_entity')->find($id);
+        if($client == NULL)
+        {
+            throw new EntityNotFoundException('Client not found ! ');
+        }
+
+        return $this->render('WebBackendBundle:Client:update/index.html.twig' ,
+            [
+                'client' => $client ,
             ]
         );
     }

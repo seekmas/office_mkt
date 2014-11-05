@@ -1,8 +1,20 @@
 imports:
     - { resource: factory.yml }
     - { resource: paginator.yml }
-
+    - { resource: extensions.yml }
 services:
+
+    char.converter:
+        class: Web\BackendBundle\Utils\WordsToChars
+
+    color.generator:
+        class: Web\BackendBundle\Utils\ColorGenerator
+
+    status.extension:
+        class: Web\BackendBundle\Twig\StatusExtension
+        tags:
+            - { name: twig.extension }
+
     twig.uri.extension:
         class: Web\BackendBundle\Twig\UriExtension
         arguments: [@request_stack]

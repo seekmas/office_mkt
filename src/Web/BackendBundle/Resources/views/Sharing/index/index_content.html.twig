@@ -54,7 +54,7 @@
             {% for key , attachment in category.attachment %}
             <tr>
                 <td><a href="{{ url('user_contract_download' , {'uuid':attachment.id}) }}">{{ attachment.file }}</a></td>
-                <td>File Type: {{ attachment.mime }}</td>
+                <td><span class="label label-info">{{ attachment.mime | file_extension }}</span></td>
             </tr>
             {% endfor %}
 

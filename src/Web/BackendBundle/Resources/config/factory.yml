@@ -70,3 +70,21 @@ services:
         factory_service: doctrine
         factory_method: getRepository
         arguments: [ Web\BackendBundle\Entity\ContractStatus ]
+
+    color_entity:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Web\BackendBundle\Entity\CalendarColor ]
+
+    calendar_entity:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Web\BackendBundle\Entity\Calendar ]
+
+    invoice_entity:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Web\BackendBundle\Entity\InvoiceItem ]

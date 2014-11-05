@@ -12,7 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Attachment
 {
-
     /**
      * @ORM\Column(type="guid")
      * @ORM\Id
@@ -97,6 +96,35 @@ class Attachment
      * @ORM\Column(name="client_id" , type="integer" , nullable=true)
      */
     private $clientId;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Contract" , inversedBy="attachment")
+     * @ORM\JoinColumn(name="contract_id" , referencedColumnName="id")
+     */
+    private $contract;
+
+    /**
+     * @ORM\Column(name="contract_id" , type="integer" , nullable=true)
+     */
+    private $contractId;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="InvoiceItem" , inversedBy="attachment")
+     * @ORM\JoinColumn(name="invoice_item_id" , referencedColumnName="id")
+     */
+    private $invoiceItem;
+
+    /**
+     * @ORM\Column(name="invoice_item_id" , type="integer" , nullable=true)
+     */
+    private $invoiceItemId;
+
+
+
+//    /**
+//     * @ORM\OneToOne(targetEntity="Paper" , mappedBy="attachment")
+//     */
+//    private $paper;
 
     /**
      * Get id
@@ -367,4 +395,93 @@ class Attachment
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getContract()
+    {
+        return $this->contract;
+    }
+
+    /**
+     * @return Attachment
+     * @param mixed $contract
+     */
+    public function setContract($contract)
+    {
+        $this->contract = $contract;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getContractId()
+    {
+        return $this->contractId;
+    }
+
+    /**
+     * @return Attachment
+     * @param mixed $contractId
+     */
+    public function setContractId($contractId)
+    {
+        $this->contractId = $contractId;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPaper()
+    {
+        return $this->paper;
+    }
+
+    /**
+     * @return Attachment
+     * @param mixed $paper
+     */
+    public function setPaper($paper)
+    {
+        $this->paper = $paper;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInvoiceItem()
+    {
+        return $this->invoiceItem;
+    }
+
+    /**
+     * @return Attachment
+     * @param mixed $invoiceItem
+     */
+    public function setInvoiceItem($invoiceItem)
+    {
+        $this->invoiceItem = $invoiceItem;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInvoiceItemId()
+    {
+        return $this->invoiceItemId;
+    }
+
+    /**
+     * @return Attachment
+     * @param mixed $invoiceItemId
+     */
+    public function setInvoiceItemId($invoiceItemId)
+    {
+        $this->invoiceItemId = $invoiceItemId;
+        return $this;
+    }
 }

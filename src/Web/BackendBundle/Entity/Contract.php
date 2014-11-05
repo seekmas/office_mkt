@@ -107,6 +107,17 @@ class Contract
      **/
     private $user;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Attachment" , mappedBy="contract")
+     */
+    private $attachment;
+
+    /**
+     * @ORM\OneToMany(targetEntity="InvoiceItem" , mappedBy="contract")
+     */
+    private $invoiceItem;
+
+
     public function __construct() {
         $this->user = new ArrayCollection();
     }
@@ -429,5 +440,41 @@ class Contract
     public function getUserId()
     {
         return $this->userId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAttachment()
+    {
+        return $this->attachment;
+    }
+
+    /**
+     * @return Contract
+     * @param mixed $attachment
+     */
+    public function setAttachment($attachment)
+    {
+        $this->attachment = $attachment;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInvoiceItem()
+    {
+        return $this->invoiceItem;
+    }
+
+    /**
+     * @return Contract
+     * @param mixed $invoiceItem
+     */
+    public function setInvoiceItem($invoiceItem)
+    {
+        $this->invoiceItem = $invoiceItem;
+        return $this;
     }
 }

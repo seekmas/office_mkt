@@ -13,7 +13,12 @@
     <div class="block full">
         <!-- View Message Title -->
         <div class="block-title">
-            <h2><strong>{{ thread.subject }}</strong> <small><span class="label label-success">Work</span></small></h2>
+
+            <h2><strong>{{ thread.subject }}</strong>
+                <small>
+                    <span class="label label-success">Work</span>
+                </small>
+            </h2>
         </div>
         <!-- END View Message Title -->
 
@@ -22,7 +27,7 @@
             <tbody>
             <tr>
                 <td class="text-center" style="width: 80px;">
-                    <a href="page_ready_user_profile.html" class="pull-left">
+                    <a href="#" class="pull-left">
                         <img src="#" alt="Avatar" class="img-circle">
                     </a>
                 </td>
@@ -43,9 +48,6 @@
         <hr>
         <!-- END Message Body -->
 
-
-
-
         <div style="height: 600px;" class="chatui-container block-content-full">
             <!-- Talk -->
             <div class="chatui-talk">
@@ -56,7 +58,7 @@
                                 {% if key > 0 %}
 
                                     <li class="chatui-talk-msg {% if message.sender == app.user %}chatui-talk-msg-highlight themed-border{% endif %}" title="reply at {{ time_diff(message.createdAt) }}">
-                                        <img src="{{ asset('backend/img/placeholders/avatars/avatar6.jpg') }}" alt="Avatar" class="img-circle chatui-talk-msg-avatar">{{ message.sender.username }}: {{ message.body | raw }}
+                                        <strong>{{ message.sender.username }}</strong>: {{ message.body | raw }}
                                     </li>
 
                                 {% endif %}

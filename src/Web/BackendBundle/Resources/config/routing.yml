@@ -2,6 +2,14 @@ web_backend_homepage:
     path:     /
     defaults: { _controller: WebBackendBundle:Home:index }
 
+calendar:
+    resource: "@WebBackendBundle/Resources/config/routes/calendar.yml"
+    prefix: /calendar
+
+rails:
+    resource: "@WebBackendBundle/Resources/config/routes/rails.yml"
+    prefix: /rails
+
 client:
     resource: "@WebBackendBundle/Resources/config/routes/client.yml"
     prefix: /client

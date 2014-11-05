@@ -13,9 +13,6 @@
 <div class="block">
 <!-- Messages List Title -->
 <div class="block-title">
-    <div class="block-options pull-right">
-        <a data-original-title="Settings" href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title=""><i class="fa fa-cog"></i></a>
-    </div>
     <h2>Inbox <strong>( {{ fos_message_nb_unread() }} )</strong></h2>
 </div>
 <!-- END Messages List Title -->
@@ -23,27 +20,6 @@
 <!-- Messages List Content -->
 <div class="table-responsive">
 <table class="table table-hover table-vcenter">
-<thead>
-<tr>
-    <td class="text-center">
-        <input id="checkbox-all" name="checkbox-all" type="checkbox">
-    </td>
-    <td colspan="3">
-        <div class="btn-group btn-group-sm">
-            <a data-original-title="Archive Selected" href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title=""><i class="fa fa-briefcase"></i></a>
-            <a data-original-title="Star Selected" href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title=""><i class="fa fa-star"></i></a>
-            <a data-original-title="Delete Selected" href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title=""><i class="fa fa-times"></i></a>
-        </div>
-    </td>
-    <td class="text-right" colspan="3">
-        <strong>1-30</strong> from <strong>5250</strong>
-        <div class="btn-group btn-group-sm">
-            <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fa fa-angle-left"></i></a>
-            <a href="javascript:void(0)" class="btn btn-sm btn-default"><i class="fa fa-angle-right"></i></a>
-        </div>
-    </td>
-</tr>
-</thead>
 <tbody>
 <!-- Use the first row as a prototype for your column widths -->
 {% for thread in threads %}

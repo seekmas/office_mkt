@@ -53,7 +53,7 @@ class ContractController extends Controller
             return $this->redirect('contract_list');
         }
 
-        return $this->render('WebBackendBundle:Contract:index/index.html.twig' ,
+        return $this->render('WebBackendBundle:Contract:edit/index.html.twig' ,
             [
                 'form' => $form->createView() ,
             ]
@@ -66,4 +66,5 @@ class ContractController extends Controller
 
         return $this->render('WebBackendBundle:Contract:list/index.html.twig' , ['user'=>$user]);
     }
+
 }

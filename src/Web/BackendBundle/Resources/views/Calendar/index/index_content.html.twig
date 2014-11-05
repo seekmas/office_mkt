@@ -1,0 +1,155 @@
+<div class="block block-alt-noborder full">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="block-section">
+                <h4>Create Events</h4>
+                {{ form(form) }}
+
+                {% if calendar.id %}
+                    <a class="btn btn-danger btn-sm" href="{{ url('calendar_delete'  , {'id':calendar.id}) }}">Delete Event</a>
+                {% endif %}
+            </div>
+            <div class="block-section">
+                <div class="block-section text-center text-muted">
+                    <small><em><i class="fa fa-arrows"></i> Click people's name and display all event of him/her .</em></small>
+                </div>
+
+                <ul class="calendar-events">
+                    <li class="ui-draggable" style="background-color: #000; position: relative;">
+                        <a href="{{ url('calendar_home') }}">Show All</a>
+                    </li>
+                    {% for color in allColors %}
+
+                        <li class="ui-draggable" style="background-color: {{ color.color }}; position: relative;">
+                            {% if color.user.document %}
+                                {{ color.user.document.englishName }}
+                            {% else %}
+                                {{ color.user.username }}
+                            {% endif %}
+                        </li>
+
+                    {% endfor %}
+                </ul>
+
+                <hr/>
+
+                <a class="btn btn-info" href="{{ url('calendar_update_color') }}">Change Color</a>
+
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="fc fc-ltr" id="calendar">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Load and execute javascript code used only in this page -->
+
+
+
+<script>
+    var CompCalendar = function() {
+        var calendarEvents  = $('.calendar-events');
+
+        /* Function for initializing drag and drop event functionality */
+        var initEvents = function() {
+            calendarEvents.find('li').each(function() {
+                // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+                var eventObject = { title: $.trim($(this).text()), color: $(this).css('background-color') };
+
+                // store the Event Object in the DOM element so we can get to it later
+                $(this).data('eventObject', eventObject);
+
+                // make the event draggable using jQuery UI
+                $(this).draggable({ zIndex: 999, revert: true, revertDuration: 0 });
+            });
+        };
+
+        return {
+            init: function() {
+                /* Initialize drag and drop event functionality */
+                initEvents();
+
+                /* Add new event in the events list */
+                var eventInput      = $('#add-event');
+                var eventInputVal   = '';
+
+                // When the add button is clicked
+                $('#add-event-btn').on('click', function(){
+                    // Get input value
+                    eventInputVal = eventInput.prop('value');
+
+                    // Check if the user entered something
+                    if ( eventInputVal ) {
+                        // Add it to the events list
+                        calendarEvents.append('<li class="animation-slideDown">' + $('<div />').text(eventInputVal).html() + '</li>');
+
+                        // Clear input field
+                        eventInput.prop('value', '');
+
+                        // Init Events
+                        initEvents();
+                    }
+
+                    // Don't let the form submit
+                    return false;
+                });
+
+                /* Initialize FullCalendar */
+                var date = new Date();
+                var d = date.getDate();
+                var m = date.getMonth();
+                var y = date.getFullYear();
+
+                $('#calendar').fullCalendar({
+                    header: {
+                        left: 'prev,next',
+                        center: 'title',
+                        right: 'month,agendaWeek,agendaDay'
+                    },
+                    firstDay: 1,
+                    editable: true,
+                    droppable: true,
+                    drop: function(date, allDay) { // this function is called when something is dropped
+
+                        // retrieve the dropped element's stored Event Object
+                        var originalEventObject = $(this).data('eventObject');
+
+                        // we need to copy it, so that multiple events don't have a reference to the same object
+                        var copiedEventObject = $.extend({}, originalEventObject);
+
+                        // assign it the date that was reported
+                        copiedEventObject.start = date;
+
+                        // render the event on the calendar
+                        // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+                        $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
+
+                        // remove the element from the "Draggable Events" list
+                        $(this).remove();
+                    },
+                    events: [
+
+                        {% for event in allEvents %}
+                        {
+                            title: '{{ event.title }}',
+                            start: '{{ event.start | date('Y-m-d') }}',
+                            {% if event.end %}
+                            end: '{{ event.end | date('Y-m-d') }}' ,
+                            {% endif %}
+                            color: '{{ event.calendarColor.color }}' ,
+                            {% if event.calendarColor.user.id == app.user.id %}
+                            url: '{{ url('calendar_edit' , {'id':event.id} ) }}'
+                            {% endif %}
+                        },
+                        {% endfor %}
+                    ]
+                });
+            }
+        };
+    }();
+</script>
+<script>$(function(){ CompCalendar.init(); });</script>

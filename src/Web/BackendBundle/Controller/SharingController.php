@@ -11,7 +11,6 @@ class SharingController extends Controller
 {
     public function indexAction(Request $request , $categoryId = NULL)
     {
-
         if( $categoryId != NULL)
         {
             $category = $this->get('sharing_category_entity')->find($categoryId);
@@ -43,6 +42,19 @@ class SharingController extends Controller
             $fm->save();
 
             $attachment->setSharing($category);
+
+            $duplicated_file = $this->get('attachment_entity')->findOneBy(['md5' => $attachment->getMd5()]);
+            if($duplicated_file)
+            {
+                $this->flash('danger' , 'Find a duplicated file in ' . $duplicated_file->getSharing());
+                if($categoryId)
+                {
+                    return $this->redirect('specific_category' , ['categoryId' => $categoryId ]);
+                }else
+                {
+                    return $this->redirect('sharing_home');
+                }
+            }
 
             $em->persist($attachment);
             $em->flush();

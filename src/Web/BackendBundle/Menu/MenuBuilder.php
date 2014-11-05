@@ -29,12 +29,14 @@ class MenuBuilder
 
         $this->menu = $this->factory->createItem('root');
 
-        if( $security->isGranted('ROLE_USER'))
+        if( $security->isGranted('ROLE_USER') && (!$security->isGranted('ROLE_ADMIN')) )
         {
             $this
                 ->createCategory()
                 ->createHome()
                 ->createFileSharing()
+                ->createInbox()
+
             ;
 
         }elseif( $security->isGranted('ROLE_ADMIN'))
@@ -50,6 +52,8 @@ class MenuBuilder
                 ->createProperty()
             ;
         }
+
+        $this->createCalendar();
 
 
         return $this->menu;
@@ -74,6 +78,13 @@ class MenuBuilder
     {
         $menu = $this->menu;
         $menu->addChild('File_Sharing', ['route' => 'sharing_home' , 'label'=>'File Sharing' , 'attributes'=> ['icon' => 'fa fa-file-o']]);
+        return $this;
+    }
+
+    public function createCalendar()
+    {
+        $menu = $this->menu;
+        $menu->addChild('Calendar', ['route' => 'calendar_home' , 'label'=>'Calendar' , 'attributes'=> ['icon' => 'fa fa-calendar']]);
         return $this;
     }
 

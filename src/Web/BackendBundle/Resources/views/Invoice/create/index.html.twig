@@ -1,0 +1,69 @@
+{% extends "WebBackendBundle:Layouts:layouts.html.twig" %}
+
+{% block icon %}fa fa-home{% endblock %}
+{% block bigTitle %}{{ 'backend.contact.bigTitle' | trans | raw }}{% endblock %}
+{% block bigDescription %}{{ 'backend.contact.bigDescription' | trans | raw }}{% endblock %}
+{% block topName %}{{ 'backend.crumbs.contact' | trans | raw }}{% endblock %}
+{% block subName %}{% endblock %}
+{% block body %}
+
+<div class="row">
+    <div class="col-md-6">
+    <div class="block full">
+        {% include "WebBackendBundle:Invoice:create/index_content.html.twig" %}
+    </div>
+    </div>
+
+    <div class="col-md-6">
+
+
+        {% for invoice in contract.invoiceItem if invoice.userId == app.user.id %}
+        <div class="gallery gallery-widget" data-toggle="lightbox-gallery">
+            <div class="block">
+                    <h5>
+                    Invoice ID:  <span class="label label-primary">{{ invoice.signals }}</span> <a href="{{ url('finish_invoice_info' , {'invoiceId' : invoice.id}) }}">Edit</a>
+                    </h5>
+
+                    <div class="row">
+                        {% for attachment in invoice.attachment %}
+                        <div class="col-xs-6 col-sm-3">
+                            <a href="{{ asset( attachment.path ~ '/' ~ attachment.file) }}" class="gallery-link" title="Image Info">
+                                <img src="{{ asset( attachment.path ~ '/' ~ attachment.file) }}" alt="image">
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <dl class="dl-horizontal">
+                        <dt>
+                            {% if invoice.invoiceType %}{{ invoice.invoiceType }} 's Expense:{% endif %}
+                        </dt>
+                        <dd>
+                            {% if invoice.totalNumber %}{{ invoice.totalNumber }}{% endif %}
+                        </dd>
+
+                        <dt>
+                            Description:
+                        </dt>
+                        <dd>
+                            {% if invoice.etc %}{{ invoice.etc | striptags | truncate(20) }}{% endif %}
+                        </dd>
+
+                        <dt>
+                            Invoice Date:
+                        </dt>
+                        <dd>
+                            {% if invoice.invoiceDate %}{{ invoice.invoiceDate | date('Y-m-d')}}{% endif %}
+                        </dd>
+                    </dl>
+
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+    </div>
+
+</div>
+
+{% endblock %}

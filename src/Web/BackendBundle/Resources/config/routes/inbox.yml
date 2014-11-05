@@ -5,6 +5,8 @@ inbox_read:
 inbox_message:
     path: /{id}
     defaults: { _controller: WebBackendBundle:Inbox:message }
+    requirements:
+        id: \d+
 
 inbox_sent:
     path: /sent

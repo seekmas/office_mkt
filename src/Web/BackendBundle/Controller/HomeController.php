@@ -9,15 +9,8 @@ class HomeController extends Controller
 {
     public function indexAction(Request $request)
     {
-        $type = new TestType();
-        $form = $this->createForm($type);
-        $form->handleRequest($request);
-        if($form->isValid())
-        {
-            ld($form->getData());
-        }
 
-        return $this->render('WebBackendBundle:Home:index/index.html.twig',['form'=>$form->createView()]);
+        return $this->render('WebBackendBundle:Home:index/index.html.twig');
     }
 }
 

@@ -1,0 +1,31 @@
+{% extends "WebBackendBundle:Layouts:layouts.html.twig" %}
+
+{% block icon %}fa fa-home{% endblock %}
+{% block bigTitle %}{{ 'backend.calendar.bigTitle' | trans | raw }}{% endblock %}
+{% block bigDescription %}{{ 'backend.calendar.bigDescription' | trans | raw }}{% endblock %}
+{% block topName %}{{ 'backend.crumbs.calendar' | trans | raw }}{% endblock %}
+{% block subName %}{% endblock %}
+{% block body %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="block">
+                {% include "WebBackendBundle:Calendar:index/index_content.html.twig" %}
+            </div>
+        </div>
+    </div>
+
+    {% include 'WebBackendBundle:Blocks:assets.html.twig' %}
+
+{% endblock %}
+
+
+{% block css %}
+    <link href="{{ asset('jquery-ui-1.11.2/jquery-ui.css') }}" rel="stylesheet" />
+    {{ form_stylesheet(form) }}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('jquery-ui-1.11.2/jquery-ui.js') }}"></script>
+    {{ form_javascript(form) }}
+{% endblock %}

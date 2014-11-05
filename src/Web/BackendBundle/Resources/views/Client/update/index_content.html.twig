@@ -1,0 +1,173 @@
+<div class="row">
+
+    <div class="col-md-5 col-lg-5">
+    <!-- Info Block -->
+    <div class="block">
+        <!-- Info Title -->
+        <div class="block-title">
+
+            <h2>{{ 'backend.client.update.company_info' | trans | raw }}</h2>
+        </div>
+        <!-- END Info Title -->
+
+        <!-- Info Content -->
+        <table class="table table-borderless table-striped">
+            <tbody>
+            <tr>
+                <td style="width: 40%;"><strong>Info</strong></td>
+                <td>{{ client.remark | raw }}</td>
+            </tr>
+
+            <tr>
+                <td><strong>{{ 'backend.client.update.fullName' | trans | raw }}</strong></td>
+                <td><a href="javascript:void(0)">{{ client.fullName }}</a></td>
+            </tr>
+
+            <tr>
+                <td><strong>{{ 'backend.client.update.shortName' | trans | raw }}</strong></td>
+                <td><a href="javascript:void(0)">{{ client.shortName }}</a></td>
+            </tr>
+
+            <tr>
+                <td><strong>{{ 'backend.client.update.address' | trans | raw }}</strong></td>
+                <td><a href="javascript:void(0)">{{ client.address }}</a></td>
+            </tr>
+            <tr>
+                <td><strong>{{ 'backend.client.update.leader' | trans | raw }}</strong></td>
+                <td><a href="javascript:void(0)">{{ client.leaderName }}</a></td>
+            </tr>
+            <tr>
+                <td><strong>{{ 'backend.client.update.leader_email' | trans | raw }}</strong></td>
+                <td><a href="javascript:void(0)">{{ client.leaderEmail }}</a></td>
+            </tr>
+            <tr>
+                <td><strong>{{ 'backend.client.update.leader_phone' | trans | raw }}</strong></td>
+                <td><a href="javascript:void(0)">{{ client.leaderPhone }}</a></td>
+            </tr>
+            <tr>
+                <td><strong>Best Skills</strong></td>
+                <td>
+                    <a href="javascript:void(0)" class="label label-info">HTML</a>
+                    <a href="javascript:void(0)" class="label label-info">CSS</a>
+                    <a href="javascript:void(0)" class="label label-info">Javascript</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <!-- END Info Content -->
+    </div>
+    <!-- END Info Block -->
+
+    <!-- Photos Block -->
+    <div class="block">
+        <!-- Photos Title -->
+        <div class="block-title">
+
+            <h2>Contacts</h2>
+        </div>
+        <!-- END Photos Title -->
+
+        <!-- Photos Content -->
+        <div class="gallery" data-toggle="lightbox-gallery">
+            <div class="row">
+                <div class="col-xs-6 col-sm-3">
+                    <a href="img/placeholders/photos/phot12.jpg" class="gallery-link" title="Image Info">
+                        <img src="img/placeholders/photos/photo12.jpg" alt="image">
+                    </a>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <a href="img/placeholders/photos/photo15.jpg" class="gallery-link" title="Image Info">
+                        <img src="img/placeholders/photos/photo15.jpg" alt="image">
+                    </a>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <a href="img/placeholders/photos/photo3.jpg" class="gallery-link" title="Image Info">
+                        <img src="img/placeholders/photos/photo3.jpg" alt="image">
+                    </a>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <a href="img/placeholders/photos/photo4.jpg" class="gallery-link" title="Image Info">
+                        <img src="img/placeholders/photos/photo4.jpg" alt="image">
+                    </a>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <a href="img/placeholders/photos/photo5.jpg" class="gallery-link" title="Image Info">
+                        <img src="img/placeholders/photos/photo5.jpg" alt="image">
+                    </a>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <a href="img/placeholders/photos/photo6.jpg" class="gallery-link" title="Image Info">
+                        <img src="img/placeholders/photos/photo6.jpg" alt="image">
+                    </a>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <a href="img/placeholders/photos/photo20.jpg" class="gallery-link" title="Image Info">
+                        <img src="img/placeholders/photos/photo20.jpg" alt="image">
+                    </a>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <a href="img/placeholders/photos/photo17.jpg" class="gallery-link" title="Image Info">
+                        <img src="img/placeholders/photos/photo17.jpg" alt="image">
+                    </a>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <a href="img/placeholders/photos/photo14.jpg" class="gallery-link" title="Image Info">
+                        <img src="img/placeholders/photos/photo14.jpg" alt="image">
+                    </a>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <a href="img/placeholders/photos/photo9.jpg" class="gallery-link" title="Image Info">
+                        <img src="img/placeholders/photos/photo9.jpg" alt="image">
+                    </a>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <a href="img/placeholders/photos/photo11.jpg" class="gallery-link" title="Image Info">
+                        <img src="img/placeholders/photos/photo11.jpg" alt="image">
+                    </a>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <a href="img/placeholders/photos/photo10.jpg" class="gallery-link" title="Image Info">
+                        <img src="img/placeholders/photos/photo10.jpg" alt="image">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- END Photos Content -->
+    </div>
+    <!-- END Photos Block -->
+    </div>
+
+
+    <div class="col-md-7 col-lg-7">
+
+        <div class="block">
+
+            <div class="block-title">
+                <h2>{{ 'backend.client.update.contracts' | trans | raw }}</h2>
+            </div>
+
+            {% for contract in client.contract %}
+
+                <div class="widget">
+                    <div class="widget-simple">
+                        <a href="javascript:void(0)" class="widget-icon pull-left animation-fadeIn themed-background">
+                            <i class="gi gi-book"></i>
+                        </a>
+                        <h4 class="widget-content text-right animation-hatch">
+                            <a href="javascript:void(0)">{{ contract.projectName }}</a>
+
+                            <span class="{{ contract.status | contract_status_color }}">{{ contract.status | contract_status }}</span>
+
+                            <small>Contract No: <strong>{{ contract.contractNo }}</strong></small>
+                        </h4>
+                    </div>
+                </div>
+
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>

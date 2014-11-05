@@ -35,6 +35,10 @@ class User extends BaseUser implements ParticipantInterface
      */
     private $avatar;
 
+    /**
+     * @ORM\OneToOne(targetEntity="CalendarColor" , mappedBy="user")
+     */
+    private $calendarColor;
 
     public function __construct()
     {
@@ -93,6 +97,24 @@ class User extends BaseUser implements ParticipantInterface
     public function setAvatar($avatar)
     {
         $this->avatar = $avatar;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCalendarColor()
+    {
+        return $this->calendarColor;
+    }
+
+    /**
+     * @return User
+     * @param mixed $calendarColor
+     */
+    public function setCalendarColor($calendarColor)
+    {
+        $this->calendarColor = $calendarColor;
         return $this;
     }
 }

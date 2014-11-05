@@ -3,21 +3,30 @@
 </div>
 
 <div class="row style-alt">
-    {% for contract in client.contract %}
+    {% for contract in user.contract if contract.clientId == clientId %}
         <!-- Contact Widget -->
-        <a href="">
             <div class="col-sm-4 col-lg-4">
 
                 <div class="widget">
                     <div class="widget-simple">
                         <h4>
-                            {{ contract.projectName }}
+                            <a href="{{ url('add_invoice_for_project' , {'contractId':contract.id}) }}">{{ contract.projectName }}</a>
+                            <br/>
+                            <small>
+                                Consultants for Project:<br/>
+                                {% for user in contract.user %}
+
+                                    {% if user.document %}
+                                        <a>{{ user.document.englishName }}</a>
+                                    {% else %}
+                                        <a>{{ user.username }}</a>
+                                    {% endif %}
+                                {% endfor %}
+                            </small>
                         </h4>
                     </div>
                 </div>
-
             </div>
-        </a>
         <!-- END Contact Widget -->
     {% endfor %}
 </div>

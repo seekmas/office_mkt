@@ -20,15 +20,17 @@ class InboxController extends Controller
 
     public function messageAction(Request $request , $id)
     {
+
+        $manager = $this->get('fos_message.message_manager');
+
         $provider = $this->container->get('fos_message.provider');
-
         $thread = $provider->getThread($id);
-
         $participants = $thread->getParticipants();
+
+        $manager->markIsReadByThreadAndParticipant($thread , $this->getUser() ,true);
 
         if($participants[0] == $this->getUser() || $participants[1] == $this->getUser())
         {
-
             $replyForm = $this->createForm(new ReplyType());
             $replyForm->handleRequest($request);
             if($replyForm->isValid())
@@ -69,13 +71,12 @@ class InboxController extends Controller
     public function sendAction(Request $request)
     {
         $form = $this->createForm(new MessageType());
+
         $form->handleRequest($request);
         if($form->isValid())
         {
             $data = $form->getData();
-
             $composer = $this->container->get('fos_message.composer');
-
             $message = $composer->newThread()
                 ->setSender($this->getUser())
                 ->addRecipient($data['user'])

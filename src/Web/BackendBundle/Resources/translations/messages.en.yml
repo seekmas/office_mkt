@@ -6,6 +6,7 @@ backend:
         sharing: Sharing Files
         user:
             contract: Account Information & Contract
+        calendar: Calendar
     home:
         bigTitle:  Makoto Office Home Page
         bigDescription:  Fast links to clients , company , project , invoice etc.
@@ -58,5 +59,21 @@ backend:
         create: Create New Client
         find: Find Client
         trash: Trash Box
+        update:
+            company_info: Company Contact Information
+            leader: Leader
+            address: Company Address
+            leader_email: Leader's Email
+            leader_phone: Leader's Phone
+            fullName: Company Full Name
+            shortName: Abbreviation
+            contracts: All Contracts
     inbox:
         sendMessage: Send Message
+
+    invoice:
+        some_bodys_invoice: 的报销单
+
+    calendar:
+        bigTitle: Work Calendar
+        bigDescription: Team members' calendar

@@ -5,3 +5,19 @@ invoice_home:
 select_project:
     path: /{clientId}
     defaults: { _controller: WebBackendBundle:Invoice:project }
+
+add_invoice_for_project:
+    path: /{contractId}/add_invoice
+    defaults: { _controller: WebBackendBundle:Invoice:createInvoice }
+
+add_item_for_invoice:
+    path: /{masterId}/add_item
+    defaults: { _controller: WebBackendBundle:Invoice:add }
+
+finish_invoice_info:
+    path: /{invoiceId}/finish
+    defaults: { _controller: WebBackendBundle:Invoice:finish }
+
+delete_invoice_photo:
+    path: /{invoiceId}/{attachmentId}/delete
+    defaults: { _controller: WebBackendBundle:Invoice:delete }

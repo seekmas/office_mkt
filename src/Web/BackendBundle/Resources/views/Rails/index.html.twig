@@ -1,0 +1,34 @@
+{% extends "WebBackendBundle:Layouts:layouts.html.twig" %}
+
+{% block icon %}fa fa-home{% endblock %}
+{% block bigTitle %}{{ 'backend.user.contract.bigTitle' | trans | raw }}{% endblock %}
+{% block bigDescription %}{{ 'backend.user.contract.bigDescription' | trans | raw }}{% endblock %}
+{% block topName %}{{ 'backend.crumbs.user.contract' | trans | raw }}{% endblock %}
+{% block subName %}{% endblock %}
+{% block body %}
+    <div id="example"></div>
+
+    <script type="text/jsx">
+
+var HelloWorld = React.createClass({
+render: function() {
+return (
+<p>
+Hello, World
+It is {this.props.date.toTimeString()}
+</p>
+);
+}
+});
+
+setInterval(function() {
+React.render(
+<HelloWorld date={new Date()} />,
+document.getElementById('example')
+);
+}, 500);
+
+
+    </script>
+
+{% endblock %}

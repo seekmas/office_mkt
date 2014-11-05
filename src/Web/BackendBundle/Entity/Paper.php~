@@ -1,0 +1,223 @@
+<?php
+
+namespace Web\BackendBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Paper
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class Paper
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="happen_at", type="datetime")
+     */
+    private $happenAt;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="paper_type", type="integer")
+     */
+    private $paperType;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="paper_money", type="decimal")
+     */
+    private $paperMoney;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="paper_description", type="text")
+     */
+    private $paperDescription;
+
+    /**
+     * @ORM\Column(name="created_at" , type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Attachment" , inversedBy="paper")
+     * @ORM\JoinColumn(name="attachment_id" , referencedColumnName="id")
+     */
+    private $attachment;
+
+    /**
+     * @ORM\Column(name="attachment_id" , type="integer")
+     */
+    private $attachmentId;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set happenAt
+     *
+     * @param \DateTime $happenAt
+     * @return Paper
+     */
+    public function setHappenAt($happenAt)
+    {
+        $this->happenAt = $happenAt;
+
+        return $this;
+    }
+
+    /**
+     * Get happenAt
+     *
+     * @return \DateTime 
+     */
+    public function getHappenAt()
+    {
+        return $this->happenAt;
+    }
+
+    /**
+     * Set paperType
+     *
+     * @param integer $paperType
+     * @return Paper
+     */
+    public function setPaperType($paperType)
+    {
+        $this->paperType = $paperType;
+
+        return $this;
+    }
+
+    /**
+     * Get paperType
+     *
+     * @return integer 
+     */
+    public function getPaperType()
+    {
+        return $this->paperType;
+    }
+
+    /**
+     * Set paperMoney
+     *
+     * @param string $paperMoney
+     * @return Paper
+     */
+    public function setPaperMoney($paperMoney)
+    {
+        $this->paperMoney = $paperMoney;
+
+        return $this;
+    }
+
+    /**
+     * Get paperMoney
+     *
+     * @return string 
+     */
+    public function getPaperMoney()
+    {
+        return $this->paperMoney;
+    }
+
+    /**
+     * Set paperDescription
+     *
+     * @param string $paperDescription
+     * @return Paper
+     */
+    public function setPaperDescription($paperDescription)
+    {
+        $this->paperDescription = $paperDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get paperDescription
+     *
+     * @return string 
+     */
+    public function getPaperDescription()
+    {
+        return $this->paperDescription;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAttachment()
+    {
+        return $this->attachment;
+    }
+
+    /**
+     * @return Paper
+     * @param mixed $attachment
+     */
+    public function setAttachment($attachment)
+    {
+        $this->attachment = $attachment;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAttachmentId()
+    {
+        return $this->attachmentId;
+    }
+
+    /**
+     * @return Paper
+     * @param mixed $attachmentId
+     */
+    public function setAttachmentId($attachmentId)
+    {
+        $this->attachmentId = $attachmentId;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @return Paper
+     * @param mixed $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+        return $this;
+    }
+}

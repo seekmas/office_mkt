@@ -1,0 +1,70 @@
+{% extends "WebBackendBundle:Layouts:layouts.html.twig" %}
+
+{% block icon %}fa fa-home{% endblock %}
+{% block bigTitle %}{{ 'backend.invoice.bigTitle' | trans | raw }}{% endblock %}
+{% block bigDescription %}{{ 'backend.invoice.bigDescription' | trans | raw }}{% endblock %}
+{% block topName %}{{ 'backend.crumbs.invoice' | trans | raw }}{% endblock %}
+{% block subName %}{% endblock %}
+{% block body %}
+
+    <div class="block full">
+        <h2>Invoice ID: <strong>{{ signal }}</strong></h2>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="block full">
+
+                <div class="block-title">
+                    <h2><strong>Add</strong> More Photos Of Invoices</h2>
+                </div>
+
+                {{ form(uploadForm) }}
+
+                <hr/>
+                <div class="gallery gallery-widget" data-toggle="lightbox-gallery">
+                <div class="row">
+                {% for attachment in item.attachment %}
+                    <div class="col-xs-3 col-lg-12">
+                        <a href="{{ asset( attachment.path ~ '/' ~ attachment.file) }}" class="gallery-link" title="{{ attachment.createdAt | date('Y-m-d') }}">
+                            <img src="{{ asset( attachment.path ~ '/' ~ attachment.file) }}" alt="{{ attachment.createdAt | date('Y-m-d') }}">
+                        </a>
+
+                        <p>
+                            <a href="{{ url('delete_invoice_photo' , {'invoiceId' : item.id , 'attachmentId' : attachment.id}) }}">Delete</a>
+                        </p>
+                        <hr />
+                    </div>
+                {% endfor %}
+                </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="col-md-8">
+            <div class="block full">
+
+                <div class="block-title">
+                    <h2><strong>Finish</strong> Invoice's Information</h2>
+                </div>
+
+                {% include "WebBackendBundle:Invoice:finish/index_content.html.twig" %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block css %}
+    <link href="{{ asset('jquery-ui-1.11.2/jquery-ui.css') }}" rel="stylesheet" />
+    {{ form_stylesheet(form) }}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('jquery-ui-1.11.2/jquery-ui.js') }}"></script>
+    {{ form_javascript(form) }}
+{% endblock %}

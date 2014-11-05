@@ -1,0 +1,27 @@
+<div align="center">
+    <h2>
+    {% if app.user.document %}{{ app.user.document.chineseName }}{% else %}{{ app.user.username }}{% endif %}
+    {{ 'backend.invoice.some_bodys_invoice' | trans | raw }}
+    </h2>
+
+    <table class="table">
+        <tr>
+            <td>
+                报销单日期
+            </td>
+            <td>{{ now() | date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <td>
+                选择的客户及项目
+            </td>
+            <td><strong>{{ contract.client }}</strong> <br/> {{ contract.projectName }} ( {{ contract.contractNo }} )</td>
+        </tr>
+
+        <tr>
+            <td>添加第 <strong>{{ contract.invoiceItem | length +1 }}</strong> 张发票</td>
+            <td><a class="btn btn-lg btn-success" href="{{ url('add_item_for_invoice' , {'masterId':contract.id}) }}">添加</a></td>
+        </tr>
+    </table>
+
+</div>

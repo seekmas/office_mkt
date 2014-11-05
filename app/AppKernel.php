@@ -25,11 +25,15 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Knp\Bundle\TimeBundle\KnpTimeBundle(),
             new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
-            //new Snc\RedisBundle\SncRedisBundle(),
+            new Snc\RedisBundle\SncRedisBundle(),
+
+            new Genemu\Bundle\FormBundle\GenemuFormBundle(),
 
             new Mmoreram\HttpHeadersBundle\HttpHeadersBundle(),
             new Web\BackendBundle\WebBackendBundle(),
             new Web\FrontendBundle\WebFrontendBundle(),
+
+
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

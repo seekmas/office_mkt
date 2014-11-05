@@ -9,3 +9,7 @@ client_list:
 client_list_by:
     path: /{ucwords}/list
     defaults: { _controller: WebBackendBundle:Client:list }
+
+client_update:
+    path: /{id}/update
+    defaults: { _controller: WebBackendBundle:Client:update }

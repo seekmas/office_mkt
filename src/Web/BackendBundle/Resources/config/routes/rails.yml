@@ -1,0 +1,3 @@
+rails_home:
+    path: /
+    defaults: { _controller: WebBackendBundle:Rails:index }

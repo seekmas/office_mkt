@@ -5,7 +5,7 @@
     <div class="widget">
         <div class="widget-simple">
             <h4>
-                <a href="page_ready_user_profile.html">
+                <a href="{{ url('client_update' , {'id':client.id}) }}">
                 {{ client.fullName }} - {{ client.shortName }}
                 </a>
             </h4>

@@ -1,0 +1,15 @@
+calendar_home:
+    path: /
+    defaults: { _controller: WebBackendBundle:Calendar:index }
+
+calendar_edit:
+    path: /{id}/edit
+    defaults: { _controller: WebBackendBundle:Calendar:index }
+
+calendar_delete:
+    path: /{id}/delete
+    defaults: { _controller: WebBackendBundle:Calendar:delete }
+
+calendar_update_color:
+    path: /calendar_update_color
+    defaults: { _controller: WebBackendBundle:Calendar:colorRoll }

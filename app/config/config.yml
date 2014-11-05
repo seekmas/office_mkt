@@ -65,6 +65,39 @@ doctrine:
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
+#        default:
+#            filters:
+#                softdeleteable:
+#                    class: Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter
+#                    enabled: true
+#            mappings:
+#                WebBackendBundle: ~
+#                WebFrontendBundle: ~
+#                gedmo_translatable:
+#                    type: annotation
+#                    prefix: Gedmo\Translatable\Entity
+#                    dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
+#                    alias: GedmoTranslatable # this one is optional and will default to the name set for the mapping
+#                    is_bundle: false
+#                gedmo_translator:
+#                    type: annotation
+#                    prefix: Gedmo\Translator\Entity
+#                    dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translator/Entity"
+#                    alias: GedmoTranslator # this one is optional and will default to the name set for the mapping
+#                    is_bundle: false
+#                gedmo_loggable:
+#                    type: annotation
+#                    prefix: Gedmo\Loggable\Entity
+#                    dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
+#                    alias: GedmoLoggable # this one is optional and will default to the name set for the mapping
+#                    is_bundle: false
+#                gedmo_tree:
+#                    type: annotation
+#                    prefix: Gedmo\Tree\Entity
+#                    dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity"
+#                    alias: GedmoTree # this one is optional and will default to the name set for the mapping
+#                    is_bundle: false
+#
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -113,6 +146,7 @@ http_headers:
             name: What_let_me_sad
             values:
                 - It is a big project but my partner is sleepy and do nothing , it is disappointed to me and I have to finish it
+
 knp_time: ~
 
 knp_menu:
@@ -135,3 +169,34 @@ knp_paginator:
 #    default_locale: en
 #    locales: [en, zh_CN]
 #    strategy: prefix
+
+genemu_form:
+    date: ~
+
+
+snc_redis:
+    clients:
+        default:
+            type: predis
+            alias: default
+            dsn: redis://localhost
+            logging: %kernel.debug%
+        cache:
+            type: predis
+            alias: cache
+            dsn: redis://secret@localhost/1
+            options:
+                profile: 2.2
+                connection_timeout: 10
+                read_write_timeout: 30
+        session:
+            type: predis
+            alias: session
+            dsn: redis://localhost/2
+        cluster:
+            type: predis
+            alias: cluster
+            dsn:
+                - redis://localhost/3?weight=10
+                - redis://localhost/4?weight=5
+                - redis://localhost/5?weight=1

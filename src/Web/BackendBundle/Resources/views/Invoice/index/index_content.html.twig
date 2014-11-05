@@ -2,8 +2,15 @@
     [ Step 1 ] Select your current's client
 </div>
 
+{% set containers = [] %}
+
+
 <div class="row style-alt">
-    {% for contract in user.contract %}
+
+    {% for contract in user.contract if contract.client.id not in containers %}
+
+        {% set containers = containers | merge([contract.client.id]) %}
+
     <!-- Contact Widget -->
     <a href="{{ url('select_project' , {'clientId' : contract.client.id}) }}">
     <div class="col-sm-4 col-lg-4">

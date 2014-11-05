@@ -3,7 +3,9 @@ security:
         FOS\UserBundle\Model\UserInterface: plaintext
 
     role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
+        ROLE_CONSULTANT: ROLE_USER
+        ROLE_PDT: ROLE_CONSULTANT
+        ROLE_ADMIN: ROLE_PDT
         ROLE_SUPER_ADMIN: ROLE_ADMIN
 
     providers:
