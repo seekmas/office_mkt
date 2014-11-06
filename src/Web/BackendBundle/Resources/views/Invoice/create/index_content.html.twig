@@ -27,7 +27,7 @@
 
             {% endfor %}
             <td>添加第 <strong>{{ counter }}</strong> 张发票</td>
-            <td><a class="btn btn-lg btn-success" href="{{ url('add_item_for_invoice' , {'masterId':contract.id}) }}">添加</a></td>
+            <td><a class="btn btn-lg btn-block btn-success" href="{{ url('add_item_for_invoice' , {'masterId':contract.id}) }}">添加</a></td>
         </tr>
     </table>
 

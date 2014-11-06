@@ -98,6 +98,9 @@ class InvoiceController extends Controller
         );
     }
 
+    /**
+     *  Finish a invoice's information
+     */
     public function finishAction(Request $request , $invoiceId)
     {
         $em = $this->getManager();
@@ -156,6 +159,9 @@ class InvoiceController extends Controller
         );
     }
 
+    /**
+     *  Delete the attachment of a invoice
+     */
     public function deleteAction($invoiceId ,$attachmentId)
     {
         $invoice = $this->get('invoice_entity')->find($invoiceId);

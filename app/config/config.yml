@@ -131,22 +131,7 @@ fos_message:
     db_driver: orm
     thread_class: Web\BackendBundle\Entity\Thread
     message_class: Web\BackendBundle\Entity\Message
-
-http_headers:
-    response:
-        x_powered_by:
-            name: X-Powered-By
-            values:
-                - PHP/mot_version_rc1.2
-        X_author_info:
-            name: X-Author-Contact
-            values:
-                - name_Mot.Evans email_seekmas@msn.cn
-        What_let_me_sad:
-            name: What_let_me_sad
-            values:
-                - It is a big project but my partner is sleepy and do nothing , it is disappointed to me and I have to finish it
-
+    
 knp_time: ~
 
 knp_menu:

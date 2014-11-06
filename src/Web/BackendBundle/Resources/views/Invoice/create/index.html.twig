@@ -23,11 +23,43 @@
         <div class="block full">
             {% include "WebBackendBundle:Invoice:create/index_content.html.twig" %}
         </div>
+
+        <div class="block full hidden-sm">
+
+            <h5>
+                Invoices that is already handled
+            </h5>
+
+            <table class="table">
+            {% for invoice in contract.invoiceItem if invoice.userId == app.user.id %}
+
+                {% if invoice.status.id != 1  %}
+                <tr>
+                    <td><span class="{{ invoice.status.flag }}">{{ invoice.status }}</span>
+                        Invoice ID:  <span class="label label-primary">{{ invoice.signals }}</span> <a href="{{ url('finish_invoice_info' , {'invoiceId' : invoice.id}) }}">More Info</a>
+                    </td>
+                    <td>
+                        {% if invoice.totalNumber %}{{ invoice.totalNumber | currency | raw }}{% endif %}
+                    </td>
+                </tr>
+
+                {% endif %}
+
+            {% endfor %}
+            </table>
+
+        </div>
     </div>
 
     <div class="col-md-6">
 
+        <h5>
+            Invoices that is in process
+        </h5>
+
         {% for invoice in contract.invoiceItem if invoice.userId == app.user.id %}
+
+            {% if invoice.status.id == 1  %}
         <div class="gallery gallery-widget" data-toggle="lightbox-gallery">
             <div class="block">
                     <h5>
@@ -81,11 +113,12 @@
 
                     <div class="alert alert-danger">发票信息不全 请上传发票照片</div>
 
-
                 {% endif %}
 
             </div>
         </div>
+            {% endif %}
+
         {% endfor %}
 
     </div>

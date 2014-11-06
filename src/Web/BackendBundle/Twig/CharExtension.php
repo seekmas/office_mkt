@@ -7,9 +7,9 @@ class CharExtension extends \Twig_Extension
     public function getFilters()
     {
         return array(
-            new \Twig_SimpleFilter('chr', array($this, 'chr')),
-            new \Twig_SimpleFilter('file_extension', array($this, 'file_extension')),
-
+            new \Twig_SimpleFilter('chr', [$this, 'chr']),
+            new \Twig_SimpleFilter('file_extension', [$this, 'file_extension']),
+            new \Twig_SimpleFilter('currency', [$this, 'currency']),
         );
     }
 
@@ -19,6 +19,11 @@ class CharExtension extends \Twig_Extension
             [
                 'now' => new \Twig_Function_Method($this, 'now')
             ];
+    }
+
+    public function currency($number)
+    {
+        return '<i class="fa fa-jpy"></i> '.$number;
     }
 
     public function chr($number)

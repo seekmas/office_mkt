@@ -46,7 +46,6 @@
         "liip/imagine-bundle": "1.0.*@dev",
         "snc/redis-bundle": "1.1.x-dev",
         "predis/predis": "0.8.x-dev",
-        "mmoreram/http-headers-bundle": "dev-master",
         "stof/doctrine-extensions-bundle": "~1.1@dev",
         "google/apiclient": "1.0.*@beta",
         "genemu/form-bundle": "2.2.*"
