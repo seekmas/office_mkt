@@ -7,21 +7,32 @@
 {% block subName %}{% endblock %}
 {% block body %}
 
+<div class="block full">
+    <ul class="nav nav-pills nav-justified clickable-steps">
+        <li><a href="{{ url('invoice_home') }}" data-gotostep="clickable-first"><strong>[ Step 1 ] Select Client</strong></a></li>
+        <li><a href="{{ url('select_project' , {'clientId':contract.clientId}) }}" data-gotostep="clickable-second"><strong>[ Step 2 ] Select Project</strong></a></li>
+        <li class="active"><a href="{{ url('add_invoice_for_project' , {'contractId':contract.id}) }}" data-gotostep="clickable-third"><strong>[ Step 3 ] Add / Manage </strong></a></li>
+        <li><a href="{{ url('add_item_for_invoice' , {'masterId':contract.id}) }}" data-gotostep="clickable-third"><strong>[ Step 4 ] Upload Invoice </strong></a></li>
+        <li class="disabled"><a href="javascript:void(0)" data-gotostep="clickable-third"><strong>[ Step 5 ] Finish Invoice </strong></a></li>
+    </ul>
+    <br/>
+</div>
+
 <div class="row">
     <div class="col-md-6">
-    <div class="block full">
-        {% include "WebBackendBundle:Invoice:create/index_content.html.twig" %}
-    </div>
+        <div class="block full">
+            {% include "WebBackendBundle:Invoice:create/index_content.html.twig" %}
+        </div>
     </div>
 
     <div class="col-md-6">
-
 
         {% for invoice in contract.invoiceItem if invoice.userId == app.user.id %}
         <div class="gallery gallery-widget" data-toggle="lightbox-gallery">
             <div class="block">
                     <h5>
-                    Invoice ID:  <span class="label label-primary">{{ invoice.signals }}</span> <a href="{{ url('finish_invoice_info' , {'invoiceId' : invoice.id}) }}">Edit</a>
+                        <span class="{{ invoice.status.flag }}">{{ invoice.status }}</span>
+                     Invoice ID:  <span class="label label-primary">{{ invoice.signals }}</span> <a href="{{ url('finish_invoice_info' , {'invoiceId' : invoice.id}) }}">Edit</a>
                     </h5>
 
                     <div class="row">
@@ -34,28 +45,44 @@
                         {% endfor %}
                     </div>
 
-                    <dl class="dl-horizontal">
-                        <dt>
-                            {% if invoice.invoiceType %}{{ invoice.invoiceType }} 's Expense:{% endif %}
-                        </dt>
-                        <dd>
+                <table class="table">
+                    <tr>
+                        <td>
+                            <strong>{% if invoice.invoiceType %}{{ invoice.invoiceType }} 's Expense{% endif %}<strong>
+                        </td>
+                        <td>
                             {% if invoice.totalNumber %}{{ invoice.totalNumber }}{% endif %}
-                        </dd>
-
-                        <dt>
-                            Description:
-                        </dt>
-                        <dd>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Description</strong>
+                        </td>
+                        <td>
                             {% if invoice.etc %}{{ invoice.etc | striptags | truncate(20) }}{% endif %}
-                        </dd>
-
-                        <dt>
-                            Invoice Date:
-                        </dt>
-                        <dd>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Invoice Date</strong>
+                        </td>
+                        <td>
                             {% if invoice.invoiceDate %}{{ invoice.invoiceDate | date('Y-m-d')}}{% endif %}
-                        </dd>
-                    </dl>
+                        </td>
+                    </tr>
+                </table>
+
+
+                {% if invoice.invoiceDate == NULL or invoice.etc == NULL or invoice.invoiceType == NULL or invoice.totalNumber == NULL %}
+
+                    <div class="alert alert-danger">发票信息不全 可能无法通过财务的报销</div>
+
+                {% elseif invoice.attachment.count == 0 %}
+
+                    <div class="alert alert-danger">发票信息不全 请上传发票照片</div>
+
+
+                {% endif %}
 
             </div>
         </div>

@@ -5,12 +5,12 @@ namespace Web\BackendBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ContractStatus
+ * InvoiceStatus
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class ContractStatus
+class InvoiceStatus
 {
     /**
      * @var integer
@@ -29,6 +29,16 @@ class ContractStatus
     private $name;
 
     /**
+     * @ORM\OneToMany(targetEntity="InvoiceItem" , mappedBy="invoiceStatus")
+     */
+    private $invoiceItem;
+
+    /**
+     * @ORM\Column(name="flag" , type="string" , length=64)
+     */
+    private $flag;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -42,7 +52,7 @@ class ContractStatus
      * Set name
      *
      * @param string $name
-     * @return ContractStatus
+     * @return InvoiceStatus
      */
     public function setName($name)
     {
@@ -59,6 +69,42 @@ class ContractStatus
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInvoiceItem()
+    {
+        return $this->invoiceItem;
+    }
+
+    /**
+     * @return InvoiceStatus
+     * @param mixed $invoiceItem
+     */
+    public function setInvoiceItem($invoiceItem)
+    {
+        $this->invoiceItem = $invoiceItem;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFlag()
+    {
+        return $this->flag;
+    }
+
+    /**
+     * @return InvoiceStatus
+     * @param mixed $flag
+     */
+    public function setFlag($flag)
+    {
+        $this->flag = $flag;
+        return $this;
     }
 
     public function __toString()

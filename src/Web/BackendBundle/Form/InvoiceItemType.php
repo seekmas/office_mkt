@@ -19,7 +19,6 @@ class InvoiceItemType extends AbstractType
             ->add('invoiceType', null ,['required'=>false])
             ->add('etc' , null , ['required'=>false])
             ->add('totalNumber' , null , ['required'=>false])
-            ->add('totalWord' , null , ['required'=>false])
         ;
 
         $builder->add('save' , 'submit');

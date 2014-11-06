@@ -8,6 +8,16 @@
 {% block body %}
 
     <div class="block full">
+
+        <ul class="nav nav-pills nav-justified clickable-steps">
+            <li><a href="{{ url('invoice_home') }}" data-gotostep="clickable-first"><strong>[ Step 1 ] Select Client</strong></a></li>
+            <li class="active"><a href="javascript:void(0)" data-gotostep="clickable-second"><strong>[ Step 2 ] Select Project</strong></a></li>
+            <li class="disabled"><a href="javascript:void(0)" data-gotostep="clickable-third"><strong>[ Step 3 ] Add Invoice </strong></a></li>
+            <li class="disabled"><a href="javascript:void(0)" data-gotostep="clickable-third"><strong>[ Step 4 ] Upload Invoice </strong></a></li>
+            <li class="disabled"><a href="javascript:void(0)" data-gotostep="clickable-third"><strong>[ Step 5 ] Finish Invoice </strong></a></li>
+        </ul>
+        <br/>
+
         {% include "WebBackendBundle:Invoice:project/index_content.html.twig" %}
     </div>
 

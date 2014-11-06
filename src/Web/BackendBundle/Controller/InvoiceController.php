@@ -50,6 +50,7 @@ class InvoiceController extends Controller
 
     public function addAction(Request $request , $masterId)
     {
+
         $em = $this->getManager();
 
         $attachment = new Attachment();
@@ -57,6 +58,10 @@ class InvoiceController extends Controller
 
         $contract = $this->get('contract_entity')->find($masterId);
         $invoiceItem = new InvoiceItem();
+
+        $status = $this->get('invoice_status_entity')->find(1);
+
+        $invoiceItem->setStatus($status);
         $invoiceItem->setUser($this->getUser());
         $invoiceItem->setContract($contract);
 
@@ -77,12 +82,18 @@ class InvoiceController extends Controller
 
             $this->flash('success' , 'Finish details of invoice please');
 
-            return $this->redirect('finish_invoice_info' , ['invoiceId' => $invoiceItem->getId()]);
+            return $this->redirect('finish_invoice_info' ,
+                [
+                    'invoiceId' => $invoiceItem->getId() ,
+                    'contract' => $contract ,
+                ]
+            );
         }
 
         return $this->render('WebBackendBundle:Invoice:add/index.html.twig' ,
             [
                 'form' => $form->createView() ,
+                'contract' => $contract ,
             ]
         );
     }
@@ -101,11 +112,20 @@ class InvoiceController extends Controller
 
         if($form->isValid())
         {
-            $em->persist($item);
-            $em->flush();
+            $status = $this->get('invoice_status_entity')->find(1);
+            if($item->getStatus() == $status)
+            {
+                $em->persist($item);
+                $em->flush();
+                $this->flash('success' , 'An invoice\'s information is updated ! ');
+                return $this->redirect('add_invoice_for_project' , ['contractId' => $item->getContract()->getId()]);
+            }else
+            {
+                $this->flash('danger' , '无法修改正在审核中/已经审核过的发票 ! ');
+                return $this->redirect('add_invoice_for_project' , ['contractId' => $item->getContract()->getId()]);
+            }
 
-            $this->flash('success' , 'An invoice\'s information is updated ! ');
-            return $this->redirect('add_invoice_for_project' , ['contractId' => $item->getContract()->getId()]);
+
         }
 
         $attachment = new Attachment();

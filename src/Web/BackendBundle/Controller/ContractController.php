@@ -10,7 +10,6 @@ class ContractController extends Controller
 {
     public function indexAction(Request $request)
     {
-
         $contract = new Contract();
 
         $contract->setUser($this->getUser());

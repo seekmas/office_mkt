@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * InvoiceItem
- *
+ * @ORM\HasLifecycleCallbacks()
  * @ORM\Table()
  * @ORM\Entity
  */
@@ -67,16 +67,9 @@ class InvoiceItem
     /**
      * @var string
      *
-     * @ORM\Column(name="total_number", type="decimal" , nullable=true)
+     * @ORM\Column(name="total_number", type="decimal" , precision = 10 , scale = 2 , nullable=true)
      */
     private $totalNumber;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="total_word", type="string", length=255 , nullable=true)
-     */
-    private $totalWord;
 
     /**
      * @ORM\ManyToOne(targetEntity="Contract" , inversedBy="invoiceItem")
@@ -99,6 +92,17 @@ class InvoiceItem
      * @ORM\Column(name="user_id" , type="integer")
      */
     private $userId;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="InvoiceStatus" , inversedBy="invoiceItem")
+     * @ORM\JoinColumn(name="status_id" , referencedColumnName="id")
+     */
+    private $status;
+
+    /**
+     * @ORM\Column(name="status_id" , type="integer" , nullable=true)
+     */
+    private $statusId;
 
     /**
      * Get id
@@ -252,29 +256,6 @@ class InvoiceItem
     }
 
     /**
-     * Set totalWord
-     *
-     * @param string $totalWord
-     * @return InvoiceItem
-     */
-    public function setTotalWord($totalWord)
-    {
-        $this->totalWord = $totalWord;
-
-        return $this;
-    }
-
-    /**
-     * Get totalWord
-     *
-     * @return string 
-     */
-    public function getTotalWord()
-    {
-        return $this->totalWord;
-    }
-
-    /**
      * @return mixed
      */
     public function getContract()
@@ -379,6 +360,42 @@ class InvoiceItem
     public function setUserId($userId)
     {
         $this->userId = $userId;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @return InvoiceItem
+     * @param mixed $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatusId()
+    {
+        return $this->statusId;
+    }
+
+    /**
+     * @return InvoiceItem
+     * @param mixed $statusId
+     */
+    public function setStatusId($statusId)
+    {
+        $this->statusId = $statusId;
         return $this;
     }
 }

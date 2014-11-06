@@ -114,6 +114,7 @@ class Contract
 
     /**
      * @ORM\OneToMany(targetEntity="InvoiceItem" , mappedBy="contract")
+     * @ORM\OrderBy({"createdAt" = "desc"})
      */
     private $invoiceItem;
 
