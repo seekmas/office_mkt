@@ -2,19 +2,20 @@
 
 {% block icon %}fa fa-home{% endblock %}
 {% block bigTitle %}{{ 'backend.invoice.bigTitle' | trans | raw }}{% endblock %}
-{% block bigDescription %}{{ 'backend.invoice.bigDescription' | trans | raw }}{% endblock %}
+{% block bigDescription %}{% endblock %}
 {% block topName %}{{ 'backend.crumbs.invoice' | trans | raw }}{% endblock %}
 {% block subName %}{% endblock %}
+
 {% block body %}
 
     <div class="block full">
 
-        <ul class="nav nav-pills nav-justified clickable-steps">
-            <li><a href="{{ url('invoice_home') }}" data-gotostep="clickable-first"><strong>[ Step 1 ] Select Client</strong></a></li>
-            <li><a href="{{ url('select_project' , {'clientId' : item.contract.client.id}) }}" data-gotostep="clickable-second"><strong>[ Step 2 ] Select Project</strong></a></li>
-            <li><a href="{{ url('add_invoice_for_project' , {'contractId' : item.contract.id}) }}" data-gotostep="clickable-third"><strong>[ Step 3 ] Add / Manage  </strong></a></li>
-            <li><a href="{{ url('add_item_for_invoice',{'masterId' : item.contract.id}) }}" data-gotostep="clickable-third"><strong>[ Step 4 ] Upload Invoice </strong></a></li>
-            <li class="active"><a href="javascript:void(0)" data-gotostep="clickable-third"><strong>[ Step 5 ] Finish Invoice </strong></a></li>
+        <ul class="nav nav-pills nav-inline clickable-steps">
+            <li><a href="{{ url('invoice_home') }}" data-gotostep="clickable-first"><strong>[1]</strong></a></li>
+            <li><a href="{{ url('select_project' , {'clientId' : item.contract.client.id}) }}" data-gotostep="clickable-second"><strong>[2]</strong></a></li>
+            <li><a href="{{ url('add_invoice_for_project' , {'contractId' : item.contract.id}) }}" data-gotostep="clickable-third"><strong>[3]</strong></a></li>
+            <li><a href="{{ url('add_item_for_invoice',{'masterId' : item.contract.id}) }}" data-gotostep="clickable-third"><strong>[4]</strong></a></li>
+            <li class="active"><a href="javascript:void(0)" data-gotostep="clickable-third"><strong>[5]</strong></a></li>
         </ul>
         <br/>
 

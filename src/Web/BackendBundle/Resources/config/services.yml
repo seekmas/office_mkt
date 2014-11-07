@@ -4,6 +4,9 @@ imports:
     - { resource: extensions.yml }
 services:
 
+    figure.to.letter:
+        class: Web\BackendBundle\Utils\FigureToLetter
+
     char.converter:
         class: Web\BackendBundle\Utils\WordsToChars
 
@@ -48,6 +51,7 @@ services:
     web.menu_builder:
         class: Web\BackendBundle\Menu\MenuBuilder
         arguments: ["@knp_menu.factory" , "@service_container"]
+
 
     web.menu.main:
         class: Knp\Menu\MenuItem # the service definition requires setting the class

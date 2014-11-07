@@ -10,15 +10,15 @@ use Web\BackendBundle\Form\InvoiceItemType;
 
 class InvoiceController extends Controller
 {
-    public function indexAction()
+    public function indexAction($character = null)
     {
-
 
         $user = $this->getUser();
 
         return $this->render('WebBackendBundle:Invoice:index/index.html.twig' ,
             [
                 'user' => $user ,
+                'character' => $character ,
             ]
         );
     }

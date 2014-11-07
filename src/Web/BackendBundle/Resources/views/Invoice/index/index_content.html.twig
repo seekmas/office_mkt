@@ -3,22 +3,24 @@
 
 <div class="row style-alt">
 
-    {% for contract in user.contract if contract.client.id not in containers %}
+    {% for contract in user.contract if contract.client.id not in containers and start_with( contract.client.shortName , character) %}
 
         {% set containers = containers | merge([contract.client.id]) %}
 
-    <!-- Contact Widget -->
-    <a href="{{ url('select_project' , {'clientId' : contract.client.id}) }}">
-    <div class="col-sm-4 col-lg-4">
-        <div class="widget">
-            <div class="widget-simple">
-                <h4>
-                    {{ contract.client.fullName }} - {{ contract.client.shortName }}
-                </h4>
+        <!-- Contact Widget -->
+        <a href="{{ url('select_project' , {'clientId' : contract.client.id}) }}">
+        <div class="col-sm-4 col-lg-4">
+            <div class="widget">
+                <div class="widget-simple">
+                    <h4>
+                        {{ contract.client.fullName }} - {{ contract.client.shortName }}
+                    </h4>
+                </div>
             </div>
         </div>
-    </div>
-    </a>
-    <!-- END Contact Widget -->
+        </a>
+        <!-- END Contact Widget -->
+
+
     {% endfor %}
 </div>

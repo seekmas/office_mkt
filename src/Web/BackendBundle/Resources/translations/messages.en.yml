@@ -6,6 +6,7 @@ backend:
         sharing: Sharing Files
         user:
             contract: Account Information & Contract
+        invoice: Invoice
         calendar: Calendar
     home:
         bigTitle:  Makoto Office Home Page
@@ -72,6 +73,7 @@ backend:
         sendMessage: Send Message
 
     invoice:
+        bigTitle: Invoice
         some_bodys_invoice: 的报销单
 
     calendar:

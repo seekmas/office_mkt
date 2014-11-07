@@ -2,8 +2,12 @@ invoice_home:
     path: /
     defaults: { _controller: WebBackendBundle:Invoice:index }
 
+invoice_home_by_words:
+    path: /{character}/filter
+    defaults: { _controller: WebBackendBundle:Invoice:index }
+
 select_project:
-    path: /{clientId}
+    path: /{clientId}/clientList
     defaults: { _controller: WebBackendBundle:Invoice:project }
 
 add_invoice_for_project:

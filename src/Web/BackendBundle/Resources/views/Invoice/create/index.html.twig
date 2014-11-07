@@ -1,19 +1,20 @@
 {% extends "WebBackendBundle:Layouts:layouts.html.twig" %}
 
 {% block icon %}fa fa-home{% endblock %}
-{% block bigTitle %}{{ 'backend.contact.bigTitle' | trans | raw }}{% endblock %}
-{% block bigDescription %}{{ 'backend.contact.bigDescription' | trans | raw }}{% endblock %}
-{% block topName %}{{ 'backend.crumbs.contact' | trans | raw }}{% endblock %}
+{% block bigTitle %}{{ 'backend.invoice.bigTitle' | trans | raw }}{% endblock %}
+{% block bigDescription %}{% endblock %}
+{% block topName %}{{ 'backend.crumbs.invoice' | trans | raw }}{% endblock %}
 {% block subName %}{% endblock %}
+
 {% block body %}
 
 <div class="block full">
-    <ul class="nav nav-pills nav-justified clickable-steps">
-        <li><a href="{{ url('invoice_home') }}" data-gotostep="clickable-first"><strong>[ Step 1 ] Select Client</strong></a></li>
-        <li><a href="{{ url('select_project' , {'clientId':contract.clientId}) }}" data-gotostep="clickable-second"><strong>[ Step 2 ] Select Project</strong></a></li>
-        <li class="active"><a href="{{ url('add_invoice_for_project' , {'contractId':contract.id}) }}" data-gotostep="clickable-third"><strong>[ Step 3 ] Add / Manage </strong></a></li>
-        <li><a href="{{ url('add_item_for_invoice' , {'masterId':contract.id}) }}" data-gotostep="clickable-third"><strong>[ Step 4 ] Upload Invoice </strong></a></li>
-        <li class="disabled"><a href="javascript:void(0)" data-gotostep="clickable-third"><strong>[ Step 5 ] Finish Invoice </strong></a></li>
+    <ul class="nav nav-pills inline clickable-steps">
+        <li><a href="{{ url('invoice_home') }}" data-gotostep="clickable-first"><strong>[1]</strong></a></li>
+        <li><a href="{{ url('select_project' , {'clientId':contract.clientId}) }}" data-gotostep="clickable-second"><strong>[2]</strong></a></li>
+        <li class="active"><a href="{{ url('add_invoice_for_project' , {'contractId':contract.id}) }}" data-gotostep="clickable-third"><strong>[3]</strong></a></li>
+        <li><a href="{{ url('add_item_for_invoice' , {'masterId':contract.id}) }}" data-gotostep="clickable-third"><strong>[4]</strong></a></li>
+        <li class="disabled"><a href="javascript:void(0)" data-gotostep="clickable-third"><strong>[5]</strong></a></li>
     </ul>
     <br/>
 </div>
@@ -24,11 +25,11 @@
             {% include "WebBackendBundle:Invoice:create/index_content.html.twig" %}
         </div>
 
+        <div class="row"><div class="col-md-12">
+        <div class="alert alert-success">
+            <h4><i class="fa fa-check"></i> Invoices that is already handled</h4>
+        </div>
         <div class="block full hidden-sm">
-
-            <h5>
-                Invoices that is already handled
-            </h5>
 
             <table class="table">
             {% for invoice in contract.invoiceItem if invoice.userId == app.user.id %}
@@ -49,13 +50,14 @@
             </table>
 
         </div>
+        </div></div>
+
     </div>
 
     <div class="col-md-6">
-
-        <h5>
-            Invoices that is in process
-        </h5>
+        <div class="alert alert-info">
+            <h4><i class="fa fa-plus"></i> Invoices that is in process</h4>
+        </div>
 
         {% for invoice in contract.invoiceItem if invoice.userId == app.user.id %}
 

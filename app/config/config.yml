@@ -131,7 +131,7 @@ fos_message:
     db_driver: orm
     thread_class: Web\BackendBundle\Entity\Thread
     message_class: Web\BackendBundle\Entity\Message
-    
+
 knp_time: ~
 
 knp_menu:

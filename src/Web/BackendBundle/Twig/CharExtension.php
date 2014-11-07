@@ -17,7 +17,8 @@ class CharExtension extends \Twig_Extension
     {
         return
             [
-                'now' => new \Twig_Function_Method($this, 'now')
+                'now' => new \Twig_Function_Method($this, 'now') ,
+                'start_with' => new \Twig_Function_Method($this, 'start_with') ,
             ];
     }
 
@@ -57,6 +58,17 @@ class CharExtension extends \Twig_Extension
     public function now()
     {
         return time();
+    }
+
+    public function start_with($string , $character)
+    {
+        if(preg_match('/^'.$character.'/' , $string))
+        {
+            return true;
+        }else
+        {
+            return false;
+        }
     }
 
     public function getName()

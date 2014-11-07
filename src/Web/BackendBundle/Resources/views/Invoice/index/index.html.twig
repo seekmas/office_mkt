@@ -2,19 +2,35 @@
 
 {% block icon %}fa fa-home{% endblock %}
 {% block bigTitle %}{{ 'backend.invoice.bigTitle' | trans | raw }}{% endblock %}
-{% block bigDescription %}{{ 'backend.invoice.bigDescription' | trans | raw }}{% endblock %}
+{% block bigDescription %}{% endblock %}
 {% block topName %}{{ 'backend.crumbs.invoice' | trans | raw }}{% endblock %}
 {% block subName %}{% endblock %}
+
 {% block body %}
 
     <div class="block full">
-        <ul class="nav nav-pills nav-justified clickable-steps">
-            <li class="active"><a href="javascript:void(0)" data-gotostep="clickable-first"><strong>[ Step 1 ] Select Client</strong></a></li>
-            <li class="disabled"><a href="javascript:void(0)" data-gotostep="clickable-second"><strong>[ Step 2 ] Select Project</strong></a></li>
-            <li class="disabled"><a href="javascript:void(0)" data-gotostep="clickable-third"><strong>[ Step 3 ] Add / Manage </strong></a></li>
-            <li class="disabled"><a href="javascript:void(0)" data-gotostep="clickable-third"><strong>[ Step 4 ] Upload Invoice </strong></a></li>
-            <li class="disabled"><a href="javascript:void(0)" data-gotostep="clickable-third"><strong>[ Step 5 ] Finish Invoice </strong></a></li>
+        <ul class="nav nav-pills nav-inline clickable-steps">
+            <li class="active"><a href="javascript:void(0)" data-gotostep="clickable-first"><strong>[1]</strong></a></li>
+            <li class="disabled"><a href="javascript:void(0)" data-gotostep="clickable-second"><strong>[2]</strong></a></li>
+            <li class="disabled"><a href="javascript:void(0)" data-gotostep="clickable-third"><strong>[3]</strong></a></li>
+            <li class="disabled"><a href="javascript:void(0)" data-gotostep="clickable-third"><strong>[4]</strong></a></li>
+            <li class="disabled"><a href="javascript:void(0)" data-gotostep="clickable-third"><strong>[5]</strong></a></li>
         </ul>
+        <br/>
+
+        <div class="block-options text-left">
+
+            <a href="{{ url('invoice_home') }}" class="btn btn-sm btn-alt {% if character == NULL %}btn-info{% else %}btn-default{% endif %}">All</a>
+
+            {% for i in 65..90 %}
+                <a href="{{ url('invoice_home_by_words' , {'character':i|chr}) }}" class="btn btn-sm btn-alt {% if character == i | chr %}btn-info{% else %}btn-default{% endif %}">{{ i|chr }}</a>
+            {% endfor %}
+
+            {% for i in 48..57 %}
+                <a href="{{ url('invoice_home_by_words' , {'character':i|chr}) }}" class="btn btn-sm btn-alt {% if character == i | chr %}btn-info{% else %}btn-default{% endif %}">{{ i|chr }}</a>
+            {% endfor %}
+        </div>
+
         <br/>
 
         {% include "WebBackendBundle:Invoice:index/index_content.html.twig" %}
