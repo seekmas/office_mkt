@@ -6,7 +6,7 @@ backend:
         sharing: Sharing Files
         user:
             contract: Account Information & Contract
-        invoice: Invoice
+        invoice: 发票报销流程
         calendar: Calendar
     home:
         bigTitle:  Makoto办公室 首页
@@ -74,8 +74,22 @@ backend:
         sendMessage: 发送消息
 
     invoice:
-        bigTitle: Invoice
+        bigTitle: 发票报销流程
+        id: 发票备份编号
+        type: %type% 的花费
+        description: 花费描述
+        invoice_happen_date: 发票上的日期
+        counter: 添加第 <strong>%counter%</strong> 张发票
+        selected_info: 选择的客户及项目
+        invoice_date: 我的报销日期
         some_bodys_invoice: 的报销单
+        in_process: 报销正在处理中
+        finished:  已经处理的报销
+
+        upload: 上传发票照片(手机拍照上传/电脑上传)
+        add_more_snapshot: 上传更多本张发票的图片
+        fill_the_invoice_info: 完善当前这张发票的信息
+        delete: 删除这张照片
 
     calendar:
         bigTitle: Work Calendar

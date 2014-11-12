@@ -74,7 +74,21 @@ backend:
 
     invoice:
         bigTitle: Invoice
-        some_bodys_invoice: 的报销单
+        id: Invoice ID
+        type: %type% Expense
+        description: Description
+        invoice_happen_date: Date in Invoice
+        counter: Add <strong>%counter%th</strong> of invoice
+        selected_info: The client and project selected
+        invoice_date: Created At
+        some_bodys_invoice: owned Invoice
+        in_process: Invoices that is in process
+        finished:  Invoices that is already handled
+
+        upload: Upload the snapshot of invoice
+        add_more_snapshot: <strong>Add</strong> More Photos Of Invoices
+        fill_the_invoice_info: <strong>Finish</strong> Invoice Information
+        delete: Delete the snapshot
 
     calendar:
         bigTitle: Work Calendar

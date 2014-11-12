@@ -8,13 +8,13 @@
     <table class="table">
         <tr>
             <td>
-                报销单日期
+                {{ 'backend.invoice.invoice_date' | trans | raw }}
             </td>
             <td>{{ now() | date('Y-m-d H:i:s') }}</td>
         </tr>
         <tr>
             <td>
-                选择的客户及项目
+                {{ 'backend.invoice.selected_info' | trans | raw }}
             </td>
             <td><strong>{{ contract.client }}</strong> <br/> {{ contract.projectName }} ( {{ contract.contractNo }} )</td>
         </tr>
@@ -26,7 +26,7 @@
                 {% set counter = counter + 1 %}
 
             {% endfor %}
-            <td>添加第 <strong>{{ counter }}</strong> 张发票</td>
+            <td>{{ 'backend.invoice.counter' | trans({ '%counter%' : counter }) | raw }}</td>
             <td><a class="btn btn-lg btn-block btn-success" href="{{ url('add_item_for_invoice' , {'masterId':contract.id}) }}">添加</a></td>
         </tr>
     </table>
