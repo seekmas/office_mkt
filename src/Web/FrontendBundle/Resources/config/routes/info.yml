@@ -1,0 +1,24 @@
+web_info:
+    path: /
+    defaults: { _controller: WebFrontendBundle:Info:index }
+
+web_add_info:
+    path: /add
+    defaults: { _controller: WebFrontendBundle:Info:add }
+
+web_trash_info:
+    path: /trash
+    defaults: { _controller: WebFrontendBundle:Info:trash }
+
+web_edit_info:
+    path: /{id}/edit
+    defaults: { _controller: WebFrontendBundle:Info:add }
+
+web_delete_info:
+    path: /{id}/delete
+    defaults: { _controller: WebFrontendBundle:Info:delete }
+
+web_restore_info:
+    path: /{id}/restore
+    defaults: { _controller: WebFrontendBundle:Info:restore }
+

@@ -1,4 +1,12 @@
 services:
-#    web_frontend.example:
-#        class: Web\FrontendBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    supply:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Web\FrontendBundle\Entity\Supply ]
+
+    accountInfo:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [ Web\FrontendBundle\Entity\AccountInfo ]

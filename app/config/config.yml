@@ -63,41 +63,44 @@ doctrine:
         #     path:     "%database_path%"
 
     orm:
-        auto_generate_proxy_classes: "%kernel.debug%"
-        auto_mapping: true
-#        default:
-#            filters:
-#                softdeleteable:
-#                    class: Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter
-#                    enabled: true
-#            mappings:
-#                WebBackendBundle: ~
-#                WebFrontendBundle: ~
-#                gedmo_translatable:
-#                    type: annotation
-#                    prefix: Gedmo\Translatable\Entity
-#                    dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
-#                    alias: GedmoTranslatable # this one is optional and will default to the name set for the mapping
-#                    is_bundle: false
-#                gedmo_translator:
-#                    type: annotation
-#                    prefix: Gedmo\Translator\Entity
-#                    dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translator/Entity"
-#                    alias: GedmoTranslator # this one is optional and will default to the name set for the mapping
-#                    is_bundle: false
-#                gedmo_loggable:
-#                    type: annotation
-#                    prefix: Gedmo\Loggable\Entity
-#                    dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
-#                    alias: GedmoLoggable # this one is optional and will default to the name set for the mapping
-#                    is_bundle: false
-#                gedmo_tree:
-#                    type: annotation
-#                    prefix: Gedmo\Tree\Entity
-#                    dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity"
-#                    alias: GedmoTree # this one is optional and will default to the name set for the mapping
-#                    is_bundle: false
-#
+        #auto_generate_proxy_classes: "%kernel.debug%"
+        #auto_mapping: true
+        entity_managers:
+            default:
+                filters:
+                    softdeleteable:
+                        class: Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter
+                        enabled: true
+                mappings:
+                    WebBackendBundle: ~
+                    WebFrontendBundle: ~
+                    FOSUserBundle: ~
+                    FOSMessageBundle: ~
+                    gedmo_translatable:
+                        type: annotation
+                        prefix: Gedmo\Translatable\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
+                        alias: GedmoTranslatable # this one is optional and will default to the name set for the mapping
+                        is_bundle: false
+                    gedmo_translator:
+                        type: annotation
+                        prefix: Gedmo\Translator\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translator/Entity"
+                        alias: GedmoTranslator # this one is optional and will default to the name set for the mapping
+                        is_bundle: false
+                    gedmo_loggable:
+                        type: annotation
+                        prefix: Gedmo\Loggable\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
+                        alias: GedmoLoggable # this one is optional and will default to the name set for the mapping
+                        is_bundle: false
+                    gedmo_tree:
+                        type: annotation
+                        prefix: Gedmo\Tree\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity"
+                        alias: GedmoTree # this one is optional and will default to the name set for the mapping
+                        is_bundle: false
+
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -185,3 +188,56 @@ snc_redis:
                 - redis://localhost/3?weight=10
                 - redis://localhost/4?weight=5
                 - redis://localhost/5?weight=1
+
+jms_serializer:
+    handlers:
+        datetime:
+            default_format: "c" # ISO8601
+            default_timezone: "UTC" # defaults to whatever timezone set in php.ini or via date_default_timezone_set
+
+    property_naming:
+        separator:  _
+        lower_case: true
+
+    metadata:
+        cache: file
+        debug: "%kernel.debug%"
+        file_cache:
+            dir: "%kernel.cache_dir%/serializer"
+
+        # Using auto-detection, the mapping files for each bundle will be
+        # expected in the Resources/config/serializer directory.
+        #
+        # Example:
+        # class: My\FooBundle\Entity\User
+        # expected path: @MyFooBundle/Resources/config/serializer/Entity.User.(yml|xml|php)
+        auto_detection: true
+
+        # if you don't want to use auto-detection, you can also define the
+        # namespace prefix and the corresponding directory explicitly
+
+
+    visitors:
+        json:
+            options: 0 # json_encode options bitmask
+        xml:
+            doctype_whitelist:
+                - '<!DOCTYPE authorized SYSTEM "http://some_url">' # an authorized document type for xml deserialization
+
+stof_doctrine_extensions:
+    default_locale: en_US
+    orm:
+        default:
+            tree: true
+            translatable: true
+            uploadable: true
+            translatable: true
+            timestampable: true
+            blameable: true
+            sluggable: true
+            softdeleteable: true
+            loggable: true
+    uploadable:
+        default_file_path:       %kernel.root_dir%/../web/uploads
+        mime_type_guesser_class: Stof\DoctrineExtensionsBundle\Uploadable\MimeTypeGuesserAdapter
+        default_file_info_class: Stof\DoctrineExtensionsBundle\Uploadable\UploadedFileInfo

@@ -19,7 +19,13 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new FOS\MessageBundle\FOSMessageBundle(),
+
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+
             new JMS\SerializerBundle\JMSSerializerBundle(),
+            new JMS\AopBundle\JMSAopBundle(),
+            new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
+            new JMS\DiExtraBundle\JMSDiExtraBundle($this),
 
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
@@ -29,7 +35,6 @@ class AppKernel extends Kernel
 
             new Genemu\Bundle\FormBundle\GenemuFormBundle(),
 
-            new Mmoreram\HttpHeadersBundle\HttpHeadersBundle(),
             new Web\BackendBundle\WebBackendBundle(),
             new Web\FrontendBundle\WebFrontendBundle(),
 

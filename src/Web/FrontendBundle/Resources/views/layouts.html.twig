@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>办公室公共信息</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script src="{{ asset('cloud/js/jquery/jquery-2.0.3.min.js') }}"></script>
+    <!-- STYLESHEETS --><!--[if lt IE 9]>
+    <script src="js/flot/excanvas.min.js"></script>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('cloud/css/cloud-admin.css') }}" >
+    <link rel="stylesheet" type="text/css"  href="{{ asset('cloud/css/themes/night.css') }}" id="skin-switcher" >
+    <link rel="stylesheet" type="text/css"  href="{{ asset('cloud/css/responsive.css') }}" >
+
+    <link href="{{ asset('cloud/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <!-- DATE RANGE PICKER -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('cloud/js/bootstrap-daterangepicker/daterangepicker-bs3.css') }}" />
+    <!-- TABLE CLOTH -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('cloud/js/tablecloth/css/tablecloth.min.css') }}" />
+    <!-- FONTS -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css"  href="{{ asset('redactor/redactor/redactor.css') }}" >
+    <script src="{{ asset('redactor/redactor/redactor.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(
+                function()
+                {
+                    $('textarea').redactor({
+                        'min-height':0 ,
+                        'max-height':400 ,
+                    });
+                }
+        );
+    </script>
+</head>
+<body>
+<!-- HEADER -->
+<header class="navbar clearfix" id="header">
+<div class="container">
+<div class="navbar-brand">
+    <!-- COMPANY LOGO -->
+    <a href="{{ url('web_info') }}">
+
+    </a>
+    <!-- /COMPANY LOGO -->
+    <!-- TEAM STATUS FOR MOBILE -->
+    <div class="visible-xs">
+        <a href="#" class="team-status-toggle switcher btn dropdown-toggle">
+            <i class="fa fa-users"></i>
+        </a>
+    </div>
+    <!-- /TEAM STATUS FOR MOBILE -->
+    <!-- SIDEBAR COLLAPSE -->
+    <div id="sidebar-collapse" class="sidebar-collapse btn">
+        <i class="fa fa-bars"
+           data-icon1="fa fa-bars"
+           data-icon2="fa fa-bars" ></i>
+    </div>
+    <!-- /SIDEBAR COLLAPSE -->
+</div>
+
+
+<!-- END TOP NAVIGATION MENU -->
+</div>
+
+</header>
+<!--/HEADER -->
+
+<!-- PAGE -->
+<section id="page">
+<!-- SIDEBAR -->
+<div id="sidebar" class="sidebar">
+    <div class="sidebar-menu nav-collapse">
+        <div class="divide-20"></div>
+        <!-- SEARCH BAR -->
+        <div id="search-bar">
+            <input class="search" type="text" placeholder="搜索"><i class="fa fa-search search-icon"></i>
+        </div>
+        <!-- /SEARCH BAR -->
+
+        <!-- SIDEBAR QUICK-LAUNCH -->
+        <!-- <div id="quicklaunch">
+        <!-- /SIDEBAR QUICK-LAUNCH -->
+
+        <!-- SIDEBAR MENU -->
+        <ul>
+            <li>
+                <a href="{{ url('home') }}">
+                    <i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">首页</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            <li class="has-sub">
+                <a href="javascript:;" class="">
+                    <i class="fa fa-group fa-fw"></i> <span class="menu-text">供应商内容管理</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub">
+                    <li>
+                        <a class="" href="{{ url('web_info') }}">
+                            <span class="sub-menu-text">供应商信息列表</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="" href="{{ url('web_add_info') }}">
+                            <span class="sub-menu-text">添加供应商信息</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="" href="{{ url('web_trash_info') }}">
+                            <span class="sub-menu-text">回收站</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="has-sub">
+                <a href="javascript:;" class="">
+                    <i class="fa fa-archive fa-fw"></i> <span class="menu-text">账号信息管理</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub">
+
+                    <li>
+                        <a class="" href="{{ url('account_info') }}">
+                            <span class="sub-menu-text">账号信息列表</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="" href="{{ url('account_info_create') }}">
+                            <span class="sub-menu-text">添加账号信息</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="" href="{{ url('account_info_trash') }}">
+                            <span class="sub-menu-text">回收站</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+        <!-- /SIDEBAR MENU -->
+    </div>
+</div>
+<!-- /SIDEBAR -->
+<div id="main-content">
+
+<div class="container">
+<div class="row">
+<div id="content" class="col-lg-12">
+<!-- PAGE HEADER-->
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-header">
+            <!-- STYLER -->
+
+            <!-- /STYLER -->
+            <!-- BREADCRUMBS -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="fa fa-home"></i>
+                    <a href="{{ url('home') }}">首页</a>
+                </li>
+                <li>
+                    办公室公共数据
+                </li>
+            </ul>
+            <!-- /BREADCRUMBS -->
+            <div class="clearfix">
+                <h3 class="content-title pull-left">{% block title %}{% endblock %}</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /PAGE HEADER -->
+<!-- SIMPLE STRIPED -->
+{% block body %}
+
+{% endblock %}
+<!-- SIMPLE STRIPED -->
+
+
+</div>
+<div class="footer-tools">
+    <span class="go-top">
+        <i class="fa fa-chevron-up"></i> Top
+    </span>
+</div>
+</div><!-- /CONTENT-->
+
+</div>
+</div>
+</section>
+<!--/PAGE -->
+
+<!-- JQUERY UI-->
+<script src="{{ asset('cloud/js/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js') }}"></script>
+<!-- BOOTSTRAP -->
+<script src="{{ asset('cloud/bootstrap-dist/js/bootstrap.min.js') }}"></script>
+
+
+<!-- DATE RANGE PICKER -->
+<script src="{{ asset('cloud/js/bootstrap-daterangepicker/moment.min.js') }}"></script>
+
+<script src="{{ asset('cloud/js/bootstrap-daterangepicker/daterangepicker.min.js') }}"></script>
+<!-- SLIMSCROLL -->
+<script type="text/javascript" src="{{ asset('cloud/js/jQuery-slimScroll-1.3.0/jquery.slimscroll.min.js') }}"></script><script type="text/javascript" src="js/jQuery-slimScroll-1.3.0/slimScrollHorizontal.min.js"></script>
+<!-- BLOCK UI -->
+<script type="text/javascript" src="{{ asset('cloud/js/jQuery-BlockUI/jquery.blockUI.min.js') }}"></script>
+<!-- TABLE CLOTH -->
+<script type="text/javascript" src="{{ asset('cloud/js/tablecloth/js/jquery.tablecloth.js') }}"></script>
+<script type="text/javascript" src="{{ asset('cloud/js/tablecloth/js/jquery.tablesorter.min.js') }}"></script>
+<!-- COOKIE -->
+<script type="text/javascript" src="{{ asset('cloud/js/jQuery-Cookie/jquery.cookie.min.js') }}"></script>
+<!-- CUSTOM SCRIPT -->
+<script src="{{ asset('cloud/js/script.js') }}"></script>
+<script>
+    jQuery(document).ready(function() {
+        App.setPage("simple_table");  //Set current page
+        App.init(); //Initialise plugins and elements
+    });
+</script>
+<!-- /JAVASCRIPTS -->
+</body>
+</html>

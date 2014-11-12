@@ -1,9 +1,82 @@
 backend:
     crumbs:
         home: 首页
+        contact: Contacts
+        client: Client
+        sharing: Sharing Files
+        user:
+            contract: Account Information & Contract
+        invoice: Invoice
+        calendar: Calendar
     home:
-        bigTile:  Makoto办公室 首页
+        bigTitle:  Makoto办公室 首页
         bigDescription:  快捷方式到客户,公司,项目,发票等等
         create: 创建
         list: 列表
         reimburse: 报销
+        create_an_invoice: 创建一笔报销
+    contact:
+        bigTitle:  Your contacts
+        bigDescription:  Show , Create , Edit , Remove your clients .
+        total: Total
+        create: Create New Contacts
+        list: List All Contacts
+        listDescription: All contacts of yours
+        find: Find My Contacts
+        trash: Trash Box
+        contactName: Contact's Name
+        fromCompany: Contact's Company
+        email: Contact's Email
+        position: Contact's Position
+        phone: Contact's Phone Number
+        createdAt: Created At
+        contactInformation: Contact's Information
+        contactsActivity: Contact's Activities
+        newsfeed: Contact's Newsfeed
+        relatedProjectsList: Contact's Related Projects List
+    user:
+        contract:
+            bigTitle: Review account information & Upload contracts
+            bigDescription: Review my bank account and upload/download contracts
+            myAccountInfo: Account Information
+            chineseName: Chinese Name
+            englishName: English/Japanese Name
+            idCard: ID Card
+            homeTown: Home Town
+            liveAddress: Current Address
+            phoneNumber: Phone Number
+            mobileNumber: Mobile Phone Number
+            privateEmail: Private Email
+            companyEmail: Company Email
+            bankAccount: Bank Account
+            currency: Currency
+            language: Language
+            contractUpload: Upload and Download Contracts
+    sharing:
+        bigTitle: Sharing Files & Downloading
+        bigDescription: Mot loves sharing
+
+    client:
+        list: 客户列表
+        create: 创建新客户
+        find: Find Client
+        trash: Trash Box
+        update:
+            company_info: 公司信息以及联系方式
+            leader: 负责人姓名
+            address: 公司地址
+            leader_email: 负责人邮箱
+            leader_phone: 负责人手机号
+            fullName: 公司全名
+            shortName: 公司缩写名
+            contracts: 所有相关合同
+    inbox:
+        sendMessage: 发送消息
+
+    invoice:
+        bigTitle: Invoice
+        some_bodys_invoice: 的报销单
+
+    calendar:
+        bigTitle: Work Calendar
+        bigDescription: Team members' calendar

@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="col-md-12">
+        <!-- BOX -->
+        <div class="box border pink">
+            <div class="box-title">
+                <h4><i class="fa fa-users"></i>被删掉的账户信息</h4>
+                <div class="tools">
+
+                    <a href="javascript:;" class="reload">
+                        <i class="fa fa-refresh"></i>
+                    </a>
+                    <a href="javascript:;" class="collapse">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a href="javascript:;" class="remove">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="box-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>用途说明</th>
+                        <th>登陆地址</th>
+                        <th>用户名</th>
+                        <th>密码</th>
+                        <th>密码保护</th>
+                        <th>描述信息</th>
+                        <th>关联手机</th>
+                        <th>关联邮箱</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for account in accounts if account.deletedAt %}
+                        <tr>
+                            <td>{{ account.id }}</td>
+                            <td>{{ account.subject }}</td>
+
+                            <td>
+                                <a href="{{ account.loginUrl }}" target="_blank">{{ account.loginUrl }}</a>
+                            </td>
+
+                            <td>{{ account.username }}</td>
+                            <td>
+
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    {{ account.password }}
+                                {% else %}
+                                    No Permission
+                                {% endif %}
+                            </td>
+                            <td>{{ account.passwordProtection | raw }}</td>
+                            <td>{{ account.description | raw }}</td>
+                            <td>{{ account.linkPhone }}</td>
+                            <td>{{ account.linkEmail }}</td>
+                            <td>
+                                <a href="{{ url('account_info_restore' , {'id':account.id}) }}"><i class="fa fa-reply"></i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- /BOX -->
+    </div>
+
+
+</div>

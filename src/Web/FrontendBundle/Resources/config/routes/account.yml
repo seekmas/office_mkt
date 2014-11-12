@@ -1,0 +1,23 @@
+account_info:
+    path: /
+    defaults: { _controller: WebFrontendBundle:AccountInfo:index }
+
+account_info_create:
+    path: /add
+    defaults: { _controller: WebFrontendBundle:AccountInfo:create }
+
+account_info_trash:
+    path: /trash
+    defaults: { _controller: WebFrontendBundle:AccountInfo:trash }
+
+account_info_edit:
+    path: /{id}/edit
+    defaults: { _controller: WebFrontendBundle:AccountInfo:edit }
+
+account_info_delete:
+    path: /{id}/delete
+    defaults: { _controller: WebFrontendBundle:AccountInfo:delete }
+
+account_info_restore:
+    path: /{id}/restore
+    defaults: { _controller: WebFrontendBundle:AccountInfo:restore }

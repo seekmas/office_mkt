@@ -2,7 +2,15 @@ web_frontend_homepage:
     path:     /
     defaults: { _controller: WebFrontendBundle:Default:index }
 
-#REST
-users:
-    type:     rest
-    resource: Web\FrontendBundle\Controller\RestController
+home:
+    path:     /home
+    defaults: { _controller: WebFrontendBundle:Default:home }
+
+info:
+    resource: "@WebFrontendBundle/Resources/config/routes/info.yml"
+    prefix: /info
+
+account:
+    resource: "@WebFrontendBundle/Resources/config/routes/account.yml"
+    prefix: /account
+

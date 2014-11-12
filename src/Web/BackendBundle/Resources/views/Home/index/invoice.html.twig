@@ -1,15 +1,14 @@
 <div class="row">
-    {% if is_granted('ROLE_ADMIN') %}
+    {% if is_granted('ROLE_CONSULTANT') %}
     <div class="col-sm-4 col-lg-4">
         <!-- create new clients -->
-        <a href="page_ready_article.html" class="widget widget-hover-effect1">
+        <a href="{{ url('invoice_home') }}" class="widget widget-hover-effect1">
             <div class="widget-simple">
-                <div class="widget-icon pull-left themed-background-autumn animation-fadeIn">
-                    <i class="fa fa-file-text"></i>
+                <div class="widget-icon pull-left themed-background animation-fadeIn">
+                    <i class="fa fa-money"></i>
                 </div>
                 <h3 class="widget-content text-right animation-pullDown">
-                    Upload New Invoices<br>
-                    <small>Mountain Trip</small>
+                    {{ 'backend.home.create_an_invoice' | trans | raw }}
                 </h3>
             </div>
         </a>

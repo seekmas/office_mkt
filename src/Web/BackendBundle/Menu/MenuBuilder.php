@@ -29,17 +29,7 @@ class MenuBuilder
 
         $this->menu = $this->factory->createItem('root');
 
-        if( $security->isGranted('ROLE_USER') && (!$security->isGranted('ROLE_ADMIN')) )
-        {
-            $this
-                ->createCategory()
-                ->createHome()
-                ->createFileSharing()
-                ->createInbox()
-
-            ;
-
-        }elseif( $security->isGranted('ROLE_ADMIN'))
+        if( $security->isGranted('ROLE_ADMIN'))
         {
             $this
                 ->createCategory()
@@ -47,10 +37,23 @@ class MenuBuilder
                 ->createFileSharing()
                 ->createInbox()
                 ->createUser()
-                ->createMarketing()
+                //->createMarketing()
                 ->configCategory()
                 ->createProperty()
             ;
+        }elseif( $security->isGranted('ROLE_PDT'))
+        {
+
+        }elseif( $security->isGranted('ROLE_CONSULTANT'))
+        {
+            $this
+                ->createCategory()
+                ->createHome()
+                ->createFileSharing()
+                ->createUser()
+                ->createInbox()
+            ;
+
         }
 
         $this->createCalendar();

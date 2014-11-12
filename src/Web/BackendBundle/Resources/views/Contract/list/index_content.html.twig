@@ -5,10 +5,10 @@
         <div class="row">
         <div class="col-md-6">
 
-            <span class="label label-info">{{ contract.contractStatus }}</span>
+            <span class="{{ contract.contractStatus.id | contract_status_color }}">{{ contract.contractStatus.id | contract_status }}</span>
 
             <label class="checkbox-inline">
-                <a href="">{{ contract.projectName }}</a>
+                <a href="{{ url('contract_edit' , {'id':contract.id}) }}">{{ contract.projectName }}</a>
             </label>
 
         </div>

@@ -124,7 +124,7 @@ class InvoiceController extends Controller
                 return $this->redirect('add_invoice_for_project' , ['contractId' => $item->getContract()->getId()]);
             }else
             {
-                $this->flash('danger' , '无法修改正在审核中/已经审核过的发票 ! ');
+                $this->flash('danger' , 'An invoice is in process / expired ! ');
                 return $this->redirect('add_invoice_for_project' , ['contractId' => $item->getContract()->getId()]);
             }
 

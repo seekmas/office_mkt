@@ -10,11 +10,11 @@ class InboxController extends Controller
 {
     public function indexAction()
     {
-        $convert = $this->get('figure.to.letter');
-
-        $convert->convert(123456789);
-
-        exit;
+//        $convert = $this->get('figure.to.letter');
+//
+//        $convert->convert(123456789);
+//
+//        exit;
 
         $provider = $this->container->get('fos_message.provider');
 

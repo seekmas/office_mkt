@@ -13,34 +13,12 @@
     <!-- Menu Content -->
     <ul class="nav nav-pills nav-stacked">
         <li class="active">
-            <a href="javascript:void(0)">
+            <a href="{{ url('inbox_read') }}">
                 <span class="badge pull-right">{{ fos_message_nb_unread() }}</span>
                 <i class="fa fa-angle-right fa-fw"></i> <strong>Inbox</strong>
             </a>
         </li>
 
-        <li>
-            <a href="javascript:void(0)">
-                <i class="fa fa-angle-right fa-fw"></i> <strong>Sent</strong>
-            </a>
-        </li>
-        <li>
-            <a href="javascript:void(0)">
-                <span class="badge pull-right">2</span>
-                <i class="fa fa-angle-right fa-fw"></i> <strong>Drafts</strong>
-            </a>
-        </li>
-        <li>
-            <a href="javascript:void(0)">
-                <i class="fa fa-angle-right fa-fw"></i> <strong>Archive</strong>
-            </a>
-        </li>
-
-        <li>
-            <a href="javascript:void(0)">
-                <i class="fa fa-angle-right fa-fw"></i> <strong>Trash</strong>
-            </a>
-        </li>
     </ul>
     <!-- END Menu Content -->
 </div>
