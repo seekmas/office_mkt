@@ -37,6 +37,13 @@ class AccountInfoController extends Controller
 
     public function editAction(Request $request , $id)
     {
+
+        if($this->get('security.context')->getToken()->isGranted('ROLE_ADMIN') == false)
+        {
+            $this->flash('danger' , 'Permission is not allowed ! ');
+            return $this->redirect('account_info_edit' , ['id'=>$id]);
+        }
+
         $em = $this->getManager();
 
         $accountInfo = $this->get('accountInfo')->find($id);
